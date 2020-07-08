@@ -1,61 +1,41 @@
 #include <stdio.h>
 
-#define PAGES 959
+#define PAGES 999
 #define BLURB "Authentic imitation!"
 
 int main()
 {
-	printf("*%d*\n", PAGES);
-	printf("*%2d*\n", PAGES);
-	printf("*%10d*\n", PAGES);
-	printf("*%-10d*\n", PAGES);
+	printf("1--->\t *%d*\n", PAGES);
+	printf("2--->\t *%2d*\n", PAGES);
+	printf("3--->\t *%10d*\n", PAGES);
+	printf("4--->\t *%-10d*\n", PAGES);
 	printf("\n");
 
-	const double RENT = 3852.99;
-	printf("*%8f*\n", RENT);
-	printf("*%e*\n", RENT);
-	printf("*%4.2f*\n", RENT);
-	printf("*%3.1f*\n", RENT);
-	printf("*%10.3f*\n", RENT);
-	printf("*%10.3E*\n", RENT);
-	printf("*%+4.2f*\n", RENT);
+    printf("5--->\t %x %X %#x\n", 31, 31, 31);
+	printf("6--->\t **%d**% d% d **\n", 42, 42, -42);
+	printf("7--->\t [%5d] [%5.3d] [%05d] [%05.3d]\n", 6, 6, 6, 6);
 	printf("\n");
 
-    printf("%x %X %#x\n", 31, 31, 31);
-	printf("**%d**% d% d **\n", 42, 42, -42);
-	printf("**%5d**%5.3d**%05d**%05.3d**\n", 6, 6, 6, 6);
-	printf("\n");
-
-    printf("[%2s]\n", BLURB);
-	printf("[%24s]\n", BLURB);
-	printf("[%24.5s]\n", BLURB);
-	printf("[%-24.5s]\n", BLURB);
+    printf("8--->\t [%2s]\n", BLURB);
+	printf("9--->\t [%24s]\n", BLURB);
+	printf("10-->\t [%24.5s]\n", BLURB);
+	printf("11-->\t [%-24.5s]\n", BLURB);
 
 	return 0;
 }
 
 /*
-_____________
-*959*
-*959*
-*       959*
-*959       *
+1--->    *999*
+2--->    *999*
+3--->    *       999*
+4--->    *999       *
 
-*3852.990000*
-*3.852990e+03*
-*3852.99*
-*3853.0*
-*  3852.990*
-* 3.853E+03*
-*+3852.99*
+5--->    1f 1F 0x1f
+6--->    **42** 42-42 **
+7--->    [    6] [  006] [00006] [  006]
 
-1f 1F 0x1f
-**42** 42-42 **
-**    6**  006**00006**  006**
-
-[Authentic imitation!]
-[    Authentic imitation!]
-[                   Authe]
-[Authe                   ]
-_____________
+8--->    [Authentic imitation!]
+9--->    [    Authentic imitation!]
+10-->    [                   Authe]
+11-->    [Authe                   ]
 */
