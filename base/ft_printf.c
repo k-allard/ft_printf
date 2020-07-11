@@ -21,7 +21,7 @@ int			ft_printf(const char* format, ...)
 	    {
 	    	i++;
 	    	argformat = ft_parser(&argptr, format, &i);
-    		if ((result = ft_processor(&argptr, format, &i, &argformat)) == ERROR)
+    		if ((result = ft_processor(&argptr, &argformat)) == ERROR)
     			break;
 	    }
 	    else

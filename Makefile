@@ -18,6 +18,7 @@ SRC = parser/ft_flags_parse.c \
 		parser/ft_precision_parse.c \
 		parser/ft_modifier_parse.c \
 		parser/ft_parser.c \
+		processor/ft_int_type.c \
 		processor/ft_char_type.c \
 		processor/ft_e_type.c \
 		processor/ft_f_inf_nan.c \
@@ -40,8 +41,8 @@ CC = gcc
 
 HEADER = includes/*.h
 
-test: $(TEST) $(OBJS)
-	@$(CC) -o project $(TEST) $(OBJS)
+test: $(TEST) $(NAME)
+	@$(CC) -o project $(TEST) $(NAME) libft/libft.a
 	@./project
 
 

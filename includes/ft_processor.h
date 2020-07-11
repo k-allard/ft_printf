@@ -16,19 +16,20 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include "ft_parser.h"
+# include "libft.h"
 
-t_ok		ft_char_type(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_e_type(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_f_inf_nan(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_f_type(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_int_type(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_n_type(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_percent_type(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_pointer_type(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_processor(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_string_type(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_un_int_type(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_un_o_type(va_list* argptr, const char* format, int*	i, t_format* argformat);
-t_ok		ft_un_xx_type(va_list* argptr, const char* format, int*	i, t_format* argformat);
+t_ok		ft_char_type(va_list* argptr, t_format* argformat);
+t_ok		ft_e_type(va_list* argptr, t_format* argformat);
+t_ok		ft_f_inf_nan(va_list* argptr, t_format* argformat);
+t_ok		ft_f_type(va_list* argptr, t_format* argformat);
+t_ok		ft_int_type(va_list* argptr, t_format* argformat);
+t_ok		ft_n_type(va_list* argptr, t_format* argformat);
+t_ok		ft_percent_type(va_list* argptr, t_format* argformat);
+t_ok		ft_pointer_type(va_list* argptr, t_format* argformat);
+t_ok		ft_processor(va_list* argptr, t_format* argformat);
+t_ok		ft_string_type(va_list* argptr, t_format* argformat);
+t_ok		ft_un_int_type(va_list* argptr, t_format* argformat);
+t_ok		ft_un_o_type(va_list* argptr, t_format* argformat);
+t_ok		ft_un_xx_type(va_list* argptr, t_format* argformat);
 
 #endif

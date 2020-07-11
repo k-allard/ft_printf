@@ -12,11 +12,13 @@
 
 #include "../includes/ft_processor.h"
 
-t_ok		ft_int_type(va_list* argptr, const char* format, int*	i, t_format* argformat)
+t_ok		ft_int_type(va_list* argptr, t_format* argformat)
 {
-	if(format != NULL)
-	argptr = argptr;
-	i = i;
+	int arg;
+
+	arg = va_arg(*argptr, int);
+	ft_putnbr_fd(arg, 1);
+
 	argformat = argformat;
 	return OK;
 }
