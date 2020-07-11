@@ -6,7 +6,7 @@
 #    By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 22:32:54 by kallard           #+#    #+#              #
-#    Updated: 2020/05/18 16:40:19 by kallard          ###   ########.fr        #
+#    Updated: 2020/07/11 21:47:55 by kallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ SRC = parser/ft_flags_parse.c \
 		processor/ft_un_o_type.c \
 		processor/ft_un_xx_type.c \
 		processor/ft_processor.c \
-       base/*.c
+       base/ft_printf.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -42,7 +42,7 @@ CC = gcc
 HEADER = includes/*.h
 
 test: $(TEST) $(NAME)
-	@$(CC) -o project $(TEST) $(NAME) libft/libft.a
+	@$(CC) -o project $(TEST) $(NAME) 
 	@./project
 
 
@@ -50,15 +50,19 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@make -C libft
-	@ar r $(NAME) $(OBJS)
+	@ar r $(NAME) $(OBJS) libft/*.o
 	@ranlib $(NAME)
 
 
 clean:
+	@rm -rf $(TEST)
 	@rm -rf $(OBJS)
+	@make -C libft clean
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -rf $(NAME)
+	@make -C libft fclean
+	@rm -rf ./project
 
 re: fclean all
 
