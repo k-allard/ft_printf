@@ -14,7 +14,10 @@
 
 t_ok		ft_f_inf_nan(va_list* argptr, t_format* argformat)
 {
-	argptr = argptr;
-	argformat = argformat;
+	if (argptr == NULL)
+	{
+		argformat = NULL;
+		return ERROR;
+	}
 	return OK;
 }

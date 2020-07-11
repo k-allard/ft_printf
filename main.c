@@ -2,8 +2,8 @@
 
 int main()
 {
-    char *string = "Nastya [%d], X[%d]";
+    char *string = "Nastya [%s], X[%d]";
 
-    ft_printf(string, 777, 2333);
+    ft_printf(string, "Smirnova", 777);
     return 0;
 }
