@@ -6,34 +6,11 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/12 21:52:16 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/13 00:35:53 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_processor.h"
-
-
-// char		*ft_un_itoa(unsigned int n)
-// {
-// 	char	*str;
-// 	unsigned int dig;
-// 	int		len;
-
-// 	dig = n;
-// 	len = 1;
-// 	while ((dig /= 10) > 0)
-// 		len++;
-// 	if (!(str = (char *)malloc((len + 1) * sizeof(char))))
-// 		return (NULL);
-// 	str[len--] = '\0';
-// 	while (len >= 0)
-// 	{
-// 		str[len] = n % 10 + '0';
-// 		n /= 10;
-// 		len--;
-// 	}
-// 	return (str);
-// }
 
 t_ok		ft_un_int_type(va_list* argptr, t_format* argformat)
 {

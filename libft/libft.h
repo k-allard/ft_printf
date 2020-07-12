@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 21:17:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/05/17 14:57:18 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/13 00:36:57 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int					ft_isdigit(int ch);
 int					ft_isprint(int ch);
 int					ft_atoi(char *str);
 char				*ft_itoa(int n);
+char				*ft_itoa_convert(unsigned long value, unsigned long base);
+
 
 size_t				ft_strlen(const char *str);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));

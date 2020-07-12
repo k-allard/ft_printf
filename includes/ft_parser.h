@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/11 11:11:18 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/13 01:15:04 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include "libft.h"
 
 typedef enum		e_type
 {
@@ -67,7 +68,7 @@ typedef	struct	s_format
 }				t_format;
 
 void		ft_flags_parse(const char* format, int*	i, t_format* argformat);
-void		ft_modifier_parse(const char* format, int*	i, t_format* argformat);
+void		ft_length_parse(const char* format, int*	i, t_format* argformat);
 t_format	ft_parser(va_list* argptr, const char* format, int*	i);
 void		ft_precision_parse(va_list* argptr, const char* format, int*	i, t_format* argformat);
 void		ft_width_parse(va_list* argptr, const char* format, int*	i, t_format* argformat);

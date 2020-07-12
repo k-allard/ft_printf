@@ -6,7 +6,7 @@
 #    By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 22:32:54 by kallard           #+#    #+#              #
-#    Updated: 2020/05/18 16:40:19 by kallard          ###   ########.fr        #
+#    Updated: 2020/07/13 00:41:48 by kallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRC = ft_memset.c \
 		ft_strtrim.c \
 		ft_split.c \
 		ft_itoa.c \
+		ft_itoa_convert.c \
 		ft_strmapi.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
