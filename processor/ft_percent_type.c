@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/11 21:26:44 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/12 13:15:59 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 t_ok		ft_percent_type(va_list* argptr, t_format* argformat)
 {
+	write(1, "%", 1);
 	if (argptr == NULL)
 	{
 		argformat = NULL;

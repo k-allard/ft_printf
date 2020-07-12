@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/11 11:11:18 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/12 21:53:09 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "ft_parser.h"
 # include "libft.h"
 
+char        *ft_itoa_convert(unsigned long value, unsigned long base);
 t_ok		ft_char_type(va_list* argptr, t_format* argformat);
 t_ok		ft_e_type(va_list* argptr, t_format* argformat);
 t_ok		ft_f_inf_nan(va_list* argptr, t_format* argformat);
