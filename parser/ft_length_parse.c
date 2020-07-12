@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parser.c                                        :+:      :+:    :+:   */
+/*   ft_modifier_parse.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,20 +12,11 @@
 
 #include "../includes/ft_parser.h"
 
-// https://ru.wikipedia.org/wiki/Printf
-t_format		ft_parser(va_list* argptr, const char* format, int*	i)
+void		ft_length_parse(const char* format, int*	i, t_format* argformat)
 {
-	//%[флаги][ширина][.точность][размер]тип
-	t_format	argformat;
-
-	argformat.ok = OK;
-	ft_flags_parse(format, i, &argformat);
-	ft_width_parse(argptr, format, i, &argformat);
-	ft_precision_parse(argptr, format, i, &argformat);
-	ft_length_parse(format, i, &argformat);
-	if (format[*i] == 'd' || format[*i] == 'i' || format[*i] == 's' || format[*i] == '%' || format[*i] == 'c' ||\
-		format[*i] == 'u' || format[*i] == 'x' || format[*i] == 'X' || format[*i] == 'p')
-		argformat.type = format[(*i)++];
-		
-	return (argformat);
+	if (format == NULL)
+	{
+		i = NULL;
+		argformat = NULL;
+	}
 }
