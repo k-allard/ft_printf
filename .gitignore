@@ -1,3 +1,8 @@
 *.o
 *.a
 project
+.vscode
+history.csv
+results.txt
+test.libc
+test.mine
