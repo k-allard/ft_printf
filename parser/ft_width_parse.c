@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/13 01:20:28 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/13 13:42:55 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void ft_width_parse(va_list* argptr, const char* format, int*	i, t_format* argfo
 {	
 	char *f;
 	int n;
+	argformat->width = 0;
 	if (format[*i] == '*')
 		argformat->width = va_arg(*argptr, int);
 	else if (ft_isdigit(format[*i]))
@@ -24,8 +25,11 @@ void ft_width_parse(va_list* argptr, const char* format, int*	i, t_format* argfo
 		argformat->width = ft_atoi(&(f[*i]));
 	}
 		
-	
+
 	n = argformat->width;
-	while ((n /= 10) >= 1)
-		(*i)++;
+    while (n) 
+	{
+        n/=10;
+        (*i)++; 
+	}
 }
