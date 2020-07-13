@@ -1,6 +1,6 @@
 #include "includes/ft_printf.h"
 #include <limits.h>
-// #include <stdio.h>
+#include <stdio.h>
 
 // cspdiuxX%
 int main()
@@ -10,8 +10,7 @@ int main()
 
     // char *string2 = "Hex: [%X]\n[%p] is a pointer\n";
     // ft_printf(string2, 79, string);
-    ft_printf("this [%05d] number", 17);
-
+    ft_printf("this [%-5d] number", 11);
 
     return 0;
 }
