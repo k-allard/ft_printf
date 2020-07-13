@@ -6,11 +6,73 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/13 15:15:22 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/13 20:22:28 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_processor.h"
+
+static void ft_int_leftaligned(int arg, int dig, t_format* argformat)
+{
+	int n; 	//n - кол-во пробелов/нулей до требуемой длины
+	
+	if (dig >= argformat->precision) //если число >= точности, точность значения не имеет
+	{
+		n = argformat->width - dig;
+		ft_putnbr_fd(arg, 1);
+		if (argformat->flags.zero)
+			while (n--)
+				write(1, "0", 1);
+		else
+			while (n--)
+				write(1, " ", 1);
+	}
+	else 							//если число < точности
+	{
+		n = argformat->precision - dig;
+		while (n--)
+				write(1, "0", 1);
+		ft_putnbr_fd(arg, 1);
+		n = argformat->width - argformat->precision;
+		if (argformat->flags.zero)
+			while (n--)
+				write(1, "0", 1);
+		else
+			while (n--)
+				write(1, " ", 1);
+	}
+}
+
+static void ft_int_rightaligned(int arg, int dig, t_format* argformat)
+{
+	int n; 	//n - кол-во пробелов/нулей до требуемой длины
+	
+	if (dig >= argformat->precision) //если число >= точности, точность значения не имеет
+	{
+		n = argformat->width - dig;
+		if (argformat->flags.zero)
+			while (n--)
+				write(1, "0", 1);
+		else
+			while (n--)
+				write(1, " ", 1);
+		ft_putnbr_fd(arg, 1);
+	}
+	else 							//если число < точности
+	{
+		n = argformat->width - argformat->precision;
+		if (argformat->flags.zero)
+			while (n--)
+				write(1, "0", 1);
+		else
+			while (n--)
+				write(1, " ", 1);
+		n = argformat->precision - dig;
+		while (n--)
+				write(1, "0", 1);
+		ft_putnbr_fd(arg, 1);
+	}
+}
 
 t_ok		ft_int_type(va_list* argptr, t_format* argformat)
 {
@@ -27,31 +89,23 @@ t_ok		ft_int_type(va_list* argptr, t_format* argformat)
 		n /= 10;
 		dig++;
 	}
-	if (argformat->width > dig)
+	
+	if (argformat->width < argformat->precision || argformat->width < dig) //случаи когда ширина и флаги выравнивания не нужны
 	{
-		n = argformat->width - dig;
-		if (argformat->flags.minus == 0)
+		if (dig > argformat->precision)	//число < точности -> точность тоже не нужна
+			ft_putnbr_fd(arg, 1);
+		else
 		{
-			if (argformat->flags.zero)
-				while (n--)
-					write(1, "0", 1);
-			else
-				while (n--)
-					write(1, " ", 1);
+			n = argformat->precision - dig; //n - число нулей перед числом для соблюдения точности
+			while (n--)
+				write(1, "0", 1);
 			ft_putnbr_fd(arg, 1);
 		}
-		else if (argformat->flags.minus == 1)
-		{
-			ft_putnbr_fd(arg, 1);
-			if (argformat->flags.zero)
-				while (n--)
-					write(1, "0", 1);
-			else
-				while (n--)
-					write(1, " ", 1);
-		}		
 	}
-	else ft_putnbr_fd(arg, 1);
+	else if (argformat->flags.minus)
+		ft_int_leftaligned(arg, dig, argformat);
+	else
+		ft_int_rightaligned(arg, dig, argformat);
 
 	return OK;
 }
