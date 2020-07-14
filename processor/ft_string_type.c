@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/14 12:59:38 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/14 13:06:50 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ static void ft_str_leftaligned(char *arg, int symb, t_format* argformat)
 	else
 	{
 		n = argformat->precision;
-		while (n--)
-			write(1, arg++, 1);
+		write(1, arg, n);
 		n = argformat->width - argformat->precision;
 		while (n--)
 			write(1, " ", 1);
@@ -51,8 +50,7 @@ static void ft_str_rightaligned(char *arg, int symb, t_format* argformat)
 		while (n--)
 			write(1, " ", 1);
 		n = symb - argformat->precision;
-		while (n--)
-			write(1, arg++, 1);
+		write(1, arg, n);
 	}
 }
 
@@ -70,8 +68,7 @@ t_ok		ft_string_type(va_list* argptr, t_format* argformat)
 		if (argformat->precision < symb)
 		{
 			n = symb - argformat->precision;
-			while (n--)
-				write(1, arg++, 1);
+			write(1, arg, n);
 		}
 		else
 			ft_putstr_fd(arg, 1);
@@ -83,9 +80,3 @@ t_ok		ft_string_type(va_list* argptr, t_format* argformat)
 	
 	return OK;
 }
-	
-	
-// 	// ft_putstr_fd(arg, 1);
-
-// 	return OK;
-// }

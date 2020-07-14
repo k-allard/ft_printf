@@ -10,7 +10,8 @@ int main()
 
     // char *string2 = "Hex: [%X]\n[%p] is a pointer\n";
     // ft_printf(string2, 79, string);
-    ft_printf("[%-10.3s]", "1234");
+    ft_printf("[%010.2d]", 1234); 
+
 
     return 0;
 }
