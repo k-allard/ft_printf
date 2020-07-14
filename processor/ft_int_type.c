@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/13 20:22:28 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/14 13:28:34 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,12 @@ t_ok		ft_int_type(va_list* argptr, t_format* argformat)
 		n /= 10;
 		dig++;
 	}
+	if (arg < 0)
+		dig++;
 	
+	if (argformat->precision)
+		argformat->flags.zero = 0;
+		
 	if (argformat->width < argformat->precision || argformat->width < dig) //случаи когда ширина и флаги выравнивания не нужны
 	{
 		if (dig > argformat->precision)	//число < точности -> точность тоже не нужна
