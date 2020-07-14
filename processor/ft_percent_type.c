@@ -6,19 +6,39 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/12 13:15:59 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/14 19:31:13 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_processor.h"
 
-t_ok		ft_percent_type(va_list* argptr, t_format* argformat)
+t_ok		ft_percent_type(t_format* argformat)
 {
-	write(1, "%", 1);
-	if (argptr == NULL)
+	if (argformat->width <= 1) //ширина и флаги выравнивания не будут нужны
+		write(1, "%", 1);
+	
+	else if (argformat->flags.minus)
 	{
-		argformat = NULL;
-		return ERROR;
+		write(1, "%", 1);
+		while (--argformat->width)
+		{
+			if (argformat->flags.zero)
+				write(1, "0", 1);
+			else
+				write(1, " ", 1);
+		}
 	}
+	else
+	{
+		while (--argformat->width)
+		{
+			if (argformat->flags.zero)
+				write(1, "0", 1);
+			else
+				write(1, " ", 1);
+		}
+		write(1, "%", 1);
+	}
+
 	return OK;
 }
