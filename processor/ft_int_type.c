@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/14 13:37:20 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/14 20:44:53 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void ft_int_leftaligned(int arg, int dig, t_format* argformat)
 {
 	int n; 	//n - кол-во пробелов/нулей до требуемой длины
 	
-	if (dig >= argformat->precision) //если число >= точности, точность значения не имеет
+	if (!argformat->precision_is_present || dig >= argformat->precision) //в этих случаях точность значения не имеет
 	{
 		n = argformat->width - dig;
 		ft_putnbr_fd(arg, 1);
@@ -47,7 +47,7 @@ static void ft_int_rightaligned(int arg, int dig, t_format* argformat)
 {
 	int n; 	//n - кол-во пробелов/нулей до требуемой длины
 	
-	if (dig >= argformat->precision) //если число >= точности, точность значения не имеет
+	if (!argformat->precision_is_present || dig >= argformat->precision) //если число >= точности, точность значения не имеет
 	{
 		n = argformat->width - dig;
 		if (argformat->flags.zero)

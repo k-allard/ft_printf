@@ -12,9 +12,13 @@ int main()
     // ft_printf(string2, 79, string);
 
     // char *str = "HELLO";
-    // printf("[%-10.2%]\n"); 
 
-    
-    ft_printf("[%-10.2%]\n"); 
+
+    printf("[%7.5s]\n", "bombastic");
+
+
+    ft_printf("[%7.5s]\n", "bombastic");
+
+
     return 0;
 }
