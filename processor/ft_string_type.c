@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/13 22:58:56 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/14 12:59:38 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void ft_str_leftaligned(char *arg, int symb, t_format* argformat)
 	}
 	else
 	{
-		n = symb - argformat->precision;
+		n = argformat->precision;
 		while (n--)
 			write(1, arg++, 1);
 		n = argformat->width - argformat->precision;
