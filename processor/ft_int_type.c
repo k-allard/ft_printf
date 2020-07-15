@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/15 15:50:07 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/15 16:19:00 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,8 @@ static void ft_int_rightaligned(int arg, int dig, t_format* argformat)
 			else
 				while (n--)
 					write(1, " ", 1);
-			ft_putnbr_fd(arg, 1);
+			if (!(argformat->precision_is_present && argformat->precision == 0 && arg == 0)) //
+				ft_putnbr_fd(arg, 1);
 		}
 	}
 	else 							//если число < точности. точность значение имеет
@@ -137,9 +138,13 @@ t_ok		ft_int_type(va_list* argptr, t_format* argformat)
 	if (arg <= 0)
 		dig++;
 	
-	if (argformat->precision)
+	if (argformat->precision_is_present)
+	{
 		argformat->flags.zero = 0;     //Для типов d, i, o, u, x, X, если точность указана, флаг 0 игнорируется.
-		
+		if (argformat->precision == 0 && arg == 0)
+			dig = 0;
+	}
+	
 	if (argformat->width < argformat->precision || argformat->width < dig) //случаи когда ширина и флаги выравнивания не нужны
 	{
 		if (dig > argformat->precision)	//число < точности -> точность тоже не нужна

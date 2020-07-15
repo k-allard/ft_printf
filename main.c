@@ -48,20 +48,23 @@ int main()
     // printf("[%-1.02s]\n", "123"); 
     // ft_printf("[%-1.02s]\n", "123"); 
 
-    printf("[%07d]\n", -54);
-    ft_printf("[%07d]\n\n", -54);
+    // printf("[%07d]\n", -54);
+    // ft_printf("[%07d]\n\n", -54);
 
-    printf("[%7d]\n", -14);
-    ft_printf("[%7d]\n\n", -14);
+    // printf("[%7d]\n", -14);
+    // ft_printf("[%7d]\n\n", -14);
 
-    printf("[%10.5d]\n", -216);
-    ft_printf("[%10.5d]\n\n", -216);
+    // printf("[%10.5d]\n", -216);
+    // ft_printf("[%10.5d]\n\n", -216);
 
-    printf("[%3.7d]\n", -2375);
-    ft_printf("[%3.7d]\n\n", -2375);
+    // printf("[%3.7d]\n", -2375);
+    // ft_printf("[%3.7d]\n\n", -2375);
 
-    printf("[%-10.5d]\n", -216);
-    ft_printf("[%-10.5d]\n", -216);
+    // printf("[%-10.5d]\n", -216);
+    // ft_printf("[%-10.5d]\n", -216);
 
+    printf("[%.0d]\n", 0);
+    ft_printf("[%.0d]\n", 0);
+    
     return 0;
 }
