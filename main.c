@@ -45,8 +45,8 @@ int main()
     // ft_printf("[%-3.2s]", NULL);
     //     printf("\n\n");
 
-    printf("[%.3s]\n", "hello");
-    ft_printf("[%.3s]\n", "hello");
+    printf("[%-1.02s]\n", "123"); 
+    ft_printf("[%-1.02s]\n", "123"); 
 
 
 
