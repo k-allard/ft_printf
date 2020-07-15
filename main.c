@@ -63,11 +63,19 @@ int main()
     // printf("[%-10.5d]\n", -216);
     // ft_printf("[%-10.5d]\n", -216);
 
-    printf("[%.0d]\n", 0);
-    ft_printf("[%.0d]\n\n", 0);
+    // printf("[%.0d]\n", 0);
+    // ft_printf("[%.0d]\n\n", 0);
 
-    printf("[%-5.0d]\n", 0);
-    ft_printf("[%-5.0d]\n", 0);
+    // printf("[%-5.0d]\n", 0);
+    // ft_printf("[%-5.0d]\n", 0);
 
+    // printf("[%.*s]\n", -3, 0);
+
+    // ft_printf("[%.*s]\n", -3, 0);
+
+    printf("[%7x]\n", 33);
+    ft_printf("[%7x]\n\n", 33);
+    
     return 0;
+
 }

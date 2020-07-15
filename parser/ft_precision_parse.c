@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/15 12:28:37 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/15 16:52:28 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,15 @@ void		ft_precision_parse(va_list* argptr, const char* format, int*	i, t_format* 
 	else return ;
 	
 	if (format[*i] == '*')
+	{
 		argformat->precision = va_arg(*argptr, int);
+		if (argformat->precision < 0)
+		{
+			argformat->precision_is_present = 0;
+			(*i)++;
+			return ;
+		}
+	}
 	else if (ft_isdigit(format[*i]))
 	{
 		while (format[*i] == '0')
