@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/15 15:36:05 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/15 15:50:07 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void ft_int_leftaligned(int arg, int dig, t_format* argformat)
 {
 	int n; 	//n - кол-во пробелов/нулей до требуемой длины
 	
-	if (!argformat->precision_is_present || dig >= argformat->precision) //в этих случаях точность значения не имеет
+	if (!argformat->precision_is_present || dig >= argformat->precision) //точность не нужна
 	{
 		n = argformat->width - dig;
 		ft_putnbr_fd(arg, 1);
@@ -27,19 +27,34 @@ static void ft_int_leftaligned(int arg, int dig, t_format* argformat)
 			while (n--)
 				write(1, " ", 1);
 	}
-	else 							//если число < точности
+	else 							//надо дополнять инт до точности
 	{
-		n = argformat->precision - dig;
-		while (n--)
-				write(1, "0", 1);
-		ft_putnbr_fd(arg, 1);
-		n = argformat->width - argformat->precision;
-		if (argformat->flags.zero)
+		
+		if (arg < 0)
+		{
+			write(1, "-", 1);
+			n = argformat->precision - dig + 1;
 			while (n--)
 				write(1, "0", 1);
-		else
+			ft_putnbr_fd(-arg, 1);
+			n = argformat->width - argformat->precision - 1;
 			while (n--)
 				write(1, " ", 1);
+		}
+		else
+		{
+			n = argformat->precision - dig;
+			while (n--)
+					write(1, "0", 1);
+			ft_putnbr_fd(arg, 1);
+			n = argformat->width - argformat->precision;
+			if (argformat->flags.zero)
+				while (n--)
+					write(1, "0", 1);
+			else
+				while (n--)
+					write(1, " ", 1);
+		}
 	}
 }
 
