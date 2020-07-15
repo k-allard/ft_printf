@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/14 13:45:27 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/15 20:07:39 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static void ft_un_int_leftaligned(unsigned int arg, int dig, t_format* argformat
 	if (dig >= argformat->precision) //если число >= точности, точность значения не имеет
 	{
 		n = argformat->width - dig;
-		ft_putstr_fd(ft_itoa_convert(arg, 10), 1);
+		if (dig)
+			ft_putstr_fd(ft_itoa_convert(arg, 10), 1);
 		if (argformat->flags.zero)
 			while (n--)
 				write(1, "0", 1);
@@ -56,7 +57,8 @@ static void ft_un_int_rightaligned(unsigned int arg, int dig, t_format* argforma
 		else
 			while (n--)
 				write(1, " ", 1);
-		ft_putstr_fd(ft_itoa_convert(arg, 10), 1);
+		if (dig)
+			ft_putstr_fd(ft_itoa_convert(arg, 10), 1);
 	}
 	else 							//если число < точности
 	{
@@ -70,7 +72,8 @@ static void ft_un_int_rightaligned(unsigned int arg, int dig, t_format* argforma
 		n = argformat->precision - dig;
 		while (n--)
 				write(1, "0", 1);
-		ft_putstr_fd(ft_itoa_convert(arg, 10), 1);
+		if (dig)
+			ft_putstr_fd(ft_itoa_convert(arg, 10), 1);
 	}
 }
 
@@ -90,9 +93,15 @@ t_ok		ft_un_int_type(va_list* argptr, t_format* argformat)
 		n /= 10;
 		dig++;
 	}
+	if (arg == 0)
+		dig++;
 	
-	if (argformat->precision)
+	if (argformat->precision_is_present)
+	{
 		argformat->flags.zero = 0;   //Для типов d, i, o, u, x, X, если точность указана, флаг 0 игнорируется.
+		if (argformat->precision == 0 && arg == 0)
+			dig = 0;
+	}
 	
 	if (argformat->width < argformat->precision || argformat->width < dig) //случаи когда ширина и флаги выравнивания не нужны
 	{

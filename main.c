@@ -86,12 +86,17 @@ int main()
     // printf("[%-8.3x]\n", 8375);
     // ft_printf("[%-8.3x]\n\n", 8375);
 
-    printf("[%5.0x]\n", 0);
-    ft_printf("[%5.0x]\n\n", 0);
+    // printf("[%5.0x]\n", 0);
+    // ft_printf("[%5.0x]\n\n", 0);
 
+    // printf("[%.0x]\n", 0);
+    // ft_printf("[%.0x]\n\n", 0);
 
-    printf("[%.0x]\n", 0);
-    ft_printf("[%.0x]\n\n", 0);
+    // printf("[%3u]\n", 0);
+    // ft_printf("[%3u]\n", 0);
+
+    printf("[%.0u]\n", 0);
+    ft_printf("[%.0u]\n\n", 0);
 
 
     return 0;
