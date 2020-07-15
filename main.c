@@ -14,10 +14,40 @@ int main()
     // char *str = "HELLO";
 
 
-    printf("[%7.5s]\n", "bombastic");
+    // printf("hello, [%s].", NULL);
+    //     printf("\n");
+    // ft_printf("hello, [%s].", NULL);
+    //     printf("\n\n");
+
+    // printf("[%s]", NULL);
+    //     printf("\n");
+    // ft_printf("[%s]", NULL);
+    //     printf("\n\n");
 
 
-    ft_printf("[%7.5s]\n", "bombastic");
+    // printf("[%32s]", NULL);
+    //     printf("\n");
+    // ft_printf("[%32s]", NULL);
+    //     printf("\n\n");
+
+    // printf("[%2s]", NULL);
+    //     printf("\n");
+    // ft_printf("[%2s]", NULL);
+    //     printf("\n\n");
+
+    // printf("[%-16s]", NULL);
+    //     printf("\n");
+    // ft_printf("[%-16s]", NULL);
+    //     printf("\n\n");
+
+    // printf("[%-3.2s]", NULL);
+    //     printf("\n");
+    // ft_printf("[%-3.2s]", NULL);
+    //     printf("\n\n");
+
+    printf("[%.3s]\n", "hello");
+    ft_printf("[%.3s]\n", "hello");
+
 
 
     return 0;

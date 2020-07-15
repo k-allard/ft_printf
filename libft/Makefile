@@ -6,7 +6,7 @@
 #    By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 22:32:54 by kallard           #+#    #+#              #
-#    Updated: 2020/07/13 00:41:48 by kallard          ###   ########.fr        #
+#    Updated: 2020/07/15 09:53:23 by kallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRC = ft_memset.c \
 		ft_toupper.c \
 		ft_tolower.c \
 		ft_calloc.c \
+		ft_strnew.c \
 		ft_strdup.c \
 		ft_substr.c \
 		ft_strjoin.c \
