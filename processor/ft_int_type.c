@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/15 16:19:00 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/15 16:24:15 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static void ft_int_leftaligned(int arg, int dig, t_format* argformat)
 	if (!argformat->precision_is_present || dig >= argformat->precision) //точность не нужна
 	{
 		n = argformat->width - dig;
-		ft_putnbr_fd(arg, 1);
+		if (!(argformat->precision_is_present && argformat->precision == 0 && arg == 0)) //
+			ft_putnbr_fd(arg, 1);
 		if (argformat->flags.zero)
 			while (n--)
 				write(1, "0", 1);
