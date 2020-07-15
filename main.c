@@ -52,7 +52,10 @@ int main()
     ft_printf("[%07d]\n\n", -54);
 
     printf("[%7d]\n", -14);
-    ft_printf("[%7d]\n", -14);
+    ft_printf("[%7d]\n\n", -14);
+
+    printf("[%10.5d]\n", -216);
+    ft_printf("[%10.5d]\n", -216);
 
     return 0;
 }

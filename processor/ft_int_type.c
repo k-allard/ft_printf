@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/15 15:14:23 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/15 15:30:13 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,19 +79,28 @@ static void ft_int_rightaligned(int arg, int dig, t_format* argformat)
 			ft_putnbr_fd(arg, 1);
 		}
 	}
-	else 							//если число < точности
+	else 							//если число < точности. точность значение имеет
 	{
 		n = argformat->width - argformat->precision;
+		if (arg < 0)
+			n--;
 		if (argformat->flags.zero)
 			while (n--)
 				write(1, "0", 1);
 		else
 			while (n--)
 				write(1, " ", 1);
+		if (arg < 0)
+			write(1, "-", 1);
 		n = argformat->precision - dig;
+		if (arg < 0)
+			n++;
 		while (n--)
 				write(1, "0", 1);
-		ft_putnbr_fd(arg, 1);
+		if (arg < 0)
+			ft_putnbr_fd(-arg, 1);
+		else
+			ft_putnbr_fd(arg, 1);
 	}
 }
 
