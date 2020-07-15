@@ -95,9 +95,15 @@ int main()
     // printf("[%3u]\n", 0);
     // ft_printf("[%3u]\n", 0);
 
-    printf("[%.0u]\n", 0);
-    ft_printf("[%.0u]\n\n", 0);
+    // printf("[%*s]\n", 32, "abc");
+    // ft_printf("[%*s]\n\n", 32, "abc");
 
+    // printf("[%*s]\n", -32, "abc");
+    // ft_printf("[%*s]\n\n", -32, "abc");
+
+
+    printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
+    ft_printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
 
     return 0;
 
