@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/15 15:30:13 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/15 15:36:05 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ t_ok		ft_int_type(va_list* argptr, t_format* argformat)
 			if (arg < 0)
 			{
 				write(1, "-", 1);
-				n = argformat->precision - 1; //n - число нулей перед числом для соблюдения точности
+				n = argformat->precision - dig + 1; //n - число нулей перед числом для соблюдения точности
 				while (n--)
 					write(1, "0", 1);
 				ft_putnbr_fd(-arg, 1);
