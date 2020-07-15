@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/15 18:25:08 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/15 18:47:19 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static void ft_xx_leftaligned(char *arg, int symb, t_format* argformat)
 	
 	if (!argformat->precision_is_present || argformat->precision <= symb) //точность не дополняет нулями число
 	{
-		ft_putstr_fd(arg, 1);
+		if (symb)
+			ft_putstr_fd(arg, 1);
 		n = argformat->width - symb;
 		while (n--)
 			write(1, " ", 1);
@@ -64,7 +65,8 @@ static void ft_xx_rightaligned(char *arg, int symb, t_format* argformat)
 		while (n--)
 			write(1, "0", 1);
 	}
-	ft_putstr_fd(arg, 1);
+	if (symb)
+		ft_putstr_fd(arg, 1);
 }
 
 t_ok		ft_un_xx_type(va_list* argptr, t_format* argformat)
@@ -83,7 +85,11 @@ t_ok		ft_un_xx_type(va_list* argptr, t_format* argformat)
 			print[n] = (char)ft_toupper((int)print[n]);
 
 	if (argformat->precision_is_present)
+	{
 		argformat->flags.zero = 0;   //Для типов d, i, o, u, x, X, если точность указана, флаг 0 игнорируется.
+		if (argformat->precision == 0 && arg == 0)
+			dig = 0;
+	}
 	
 	if (argformat->width < argformat->precision || argformat->width < dig) //ширина и ее флаги не нужны
 	{

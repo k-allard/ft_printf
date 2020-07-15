@@ -6,7 +6,7 @@
 #    By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 22:32:54 by kallard           #+#    #+#              #
-#    Updated: 2020/07/15 18:25:33 by kallard          ###   ########.fr        #
+#    Updated: 2020/07/15 18:48:54 by kallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,7 @@ re: fclean all
 
 pft: fclean
 	@make -C pft
-	@pft/test
+	@pft/test X
 
 
 %.o: %.c
