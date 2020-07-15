@@ -45,10 +45,11 @@ int main()
     // ft_printf("[%-3.2s]", NULL);
     //     printf("\n\n");
 
-    printf("[%-1.02s]\n", "123"); 
-    ft_printf("[%-1.02s]\n", "123"); 
+    // printf("[%-1.02s]\n", "123"); 
+    // ft_printf("[%-1.02s]\n", "123"); 
 
-
+    printf("[%3d]\n", 0);
+    ft_printf("[%3d]\n", 0);
 
     return 0;
 }
