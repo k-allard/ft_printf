@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/15 12:42:44 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/15 15:14:23 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,37 @@ static void ft_int_rightaligned(int arg, int dig, t_format* argformat)
 {
 	int n; 	//n - кол-во пробелов/нулей до требуемой длины
 	
-	if (!argformat->precision_is_present || dig >= argformat->precision) //если число >= точности, точность значения не имеет
+	if (!argformat->precision_is_present || dig >= argformat->precision) //точность значения не имеет
 	{
-		n = argformat->width - dig;
-		if (argformat->flags.zero)
-			while (n--)
-				write(1, "0", 1);
-		else
-			while (n--)
+		if (arg < 0)
+		{
+			if (argformat->flags.zero)
+			{
+				write(1, "-", 1);
+				n = argformat->width - dig;
+				while (n--)
+					write(1, "0", 1);
+				ft_putnbr_fd(-arg, 1);
+			}
+			else
+			{
+				n = argformat->width - dig;
+				while (n--)
 				write(1, " ", 1);
-		ft_putnbr_fd(arg, 1);
+				ft_putnbr_fd(arg, 1);
+			}
+		}
+		else
+		{
+			n = argformat->width - dig;
+			if (argformat->flags.zero)
+				while (n--)
+					write(1, "0", 1);
+			else
+				while (n--)
+					write(1, " ", 1);
+			ft_putnbr_fd(arg, 1);
+		}
 	}
 	else 							//если число < точности
 	{

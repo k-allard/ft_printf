@@ -48,8 +48,11 @@ int main()
     // printf("[%-1.02s]\n", "123"); 
     // ft_printf("[%-1.02s]\n", "123"); 
 
-    printf("[%.6d]\n", -3);
-    ft_printf("[%.6d]\n", -3);
+    printf("[%07d]\n", -54);
+    ft_printf("[%07d]\n\n", -54);
+
+    printf("[%7d]\n", -14);
+    ft_printf("[%7d]\n", -14);
 
     return 0;
 }
