@@ -73,9 +73,19 @@ int main()
 
     // ft_printf("[%.*s]\n", -3, 0);
 
+    // printf("[%7x]\n", 33);
+    // ft_printf("[%7x]\n\n", 33);
+
+    printf("[%8.5x]\n", 34);
+    ft_printf("[%8.5x]\n\n", 34);
+
     printf("[%7x]\n", 33);
     ft_printf("[%7x]\n\n", 33);
-    
+
+
+    printf("[%-8.3x]\n", 8375);
+    ft_printf("[%-8.3x]\n\n", 8375);
+
     return 0;
 
 }
