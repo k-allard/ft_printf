@@ -105,10 +105,10 @@ int main()
     // printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
     // ft_printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
 
-    // int n;
+    int n;
 
-    ft_printf("[%-8.3d]", 8375);
-    // printf("\n%d", n);
+    n = ft_printf("[%-6d]", -123);
+    printf("\n%d", n - 2);
 
     return 0;
 
