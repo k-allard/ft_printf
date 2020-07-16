@@ -84,7 +84,7 @@ int main()
 
 
     // printf("[%-8.3x]\n", 8375);
-    // ft_printf("[%-8.3x]\n\n", 8375);
+    // ft_printf("[%-8.3d]\n", 8375);
 
     // printf("[%5.0x]\n", 0);
     // ft_printf("[%5.0x]\n\n", 0);
@@ -102,8 +102,13 @@ int main()
     // ft_printf("[%*s]\n\n", -32, "abc");
 
 
-    printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
-    ft_printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
+    // printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
+    // ft_printf("%% *.5i 42 == |% *.5i|\n", 4, 42);
+
+    // int n;
+
+    ft_printf("[%-8.3d]", 8375);
+    // printf("\n%d", n);
 
     return 0;
 

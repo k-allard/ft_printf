@@ -7,31 +7,33 @@
 int			ft_printf(const char* format, ...)
 {
 	int	i;
+	int c;
 	t_format	argformat;
 	t_ok		result;
 
-	va_list argptr;                     //Сначала нужно объявить переменную типа va_list
-    va_start(argptr, format);                //Затем, до обработки первого аргумента, вызвать макрос va_start, передав в него нашу переменную, а также аргумент s 
-                                    //(последний, идущий перед списком переменной длины)
+	va_list argptr;
+	va_start(argptr, format);
 
-    i = 0;
-    while(format[i])
-    {
-    	if(format[i] == '%')
-	    {
-	    	i++;
-	    	argformat = ft_parser(&argptr, format, &i);
-    		if ((result = ft_processor(&argptr, &argformat)) == ERROR)
-    			break;
-	    }
-	    else
-    		write(1, &format[i++], 1);
-    }
-
-    
-    va_end(argptr);
-    if(argformat.ok == ERROR || result == ERROR)
-    	return (-1);
-    else
-		return (i);
+	c = 0;
+	i = 0;
+	while(format[i])
+	{
+		if(format[i] == '%')
+		{
+			i++;
+			argformat = ft_parser(&argptr, format, &i);
+			if ((result = ft_processor(&argptr, &argformat, &c)) == ERROR)
+				break;
+		}
+		else
+		{
+			write(1, &format[i++], 1);
+			c++;
+		}
+	}
+	va_end(argptr);
+	if(argformat.ok == ERROR || result == ERROR)
+		return (-1);
+	else
+		return (c);
 }

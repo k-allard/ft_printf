@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_e_type.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/16 21:38:33 by kallard          ###   ########.fr       */
+/*   Created: 2020/07/16 21:26:26 by kallard           #+#    #+#             */
+/*   Updated: 2020/07/16 21:26:37 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_processor.h"
+# include <unistd.h>
 
-t_ok		ft_e_type(va_list* argptr, t_format* argformat, int *count)
+void	writespaces(int n)
 {
-	if (argptr == NULL)
-	{
-		*count = *count + 0;
-		argformat = NULL;
-		return ERROR;
-	}
-	return OK;
+	while (n--)
+		write(1, " ", 1);
+}
+
+void	writezeros(int n)
+{
+	while (n--)
+		write(1, "0", 1);
 }

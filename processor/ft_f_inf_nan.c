@@ -12,10 +12,11 @@
 
 #include "../includes/ft_processor.h"
 
-t_ok		ft_f_inf_nan(va_list* argptr, t_format* argformat)
+t_ok		ft_f_inf_nan(va_list* argptr, t_format* argformat, int* count)
 {
 	if (argptr == NULL)
 	{
+		*count = *count + 0;
 		argformat = NULL;
 		return ERROR;
 	}

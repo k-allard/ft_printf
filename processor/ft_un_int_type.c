@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/15 20:07:39 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/16 21:40:06 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,14 @@ static void ft_un_int_rightaligned(unsigned int arg, int dig, t_format* argforma
 	}
 }
 
-t_ok		ft_un_int_type(va_list* argptr, t_format* argformat)
+t_ok		ft_un_int_type(va_list* argptr, t_format* argformat, int *count)
 {
 	
 	unsigned int arg;
 	unsigned int n;
 	int dig;
+
+*count = *count + 0;
 
 	arg = (unsigned int)va_arg(*argptr, unsigned int);
 

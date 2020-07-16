@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/15 10:21:24 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/16 21:39:58 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,14 @@ static t_ok ft_nullstring(t_format* argformat)
 	return OK;
 }
 
-t_ok		ft_string_type(va_list* argptr, t_format* argformat)
+t_ok		ft_string_type(va_list *argptr, t_format *argformat, int *count)
 {
 	char *arg;
 	// int n;
 	char *arg_new;
 	int symb;	//кол-во символов в строке
+	
+	*count = *count + 0;
 	
 	arg = va_arg(*argptr, char *);
 

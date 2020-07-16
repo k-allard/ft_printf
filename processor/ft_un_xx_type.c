@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/15 18:47:19 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/16 21:40:20 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,14 @@ static void ft_xx_rightaligned(char *arg, int symb, t_format* argformat)
 		ft_putstr_fd(arg, 1);
 }
 
-t_ok		ft_un_xx_type(va_list* argptr, t_format* argformat)
+t_ok		ft_un_xx_type(va_list* argptr, t_format* argformat, int *count)
 {
 	unsigned int arg;
 	char* print;
 	int dig;
 	int n;
+
+	*count = *count + 0;
 	
 	arg = (unsigned int)va_arg(*argptr, unsigned int);
 	print = ft_itoa_convert(arg, 16);

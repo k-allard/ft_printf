@@ -64,11 +64,11 @@ int pct_5wlj(void){return test("%-5%");}
 int pct_5wzp(void){return test("%05%");}
 int pct_5wljzp(void){return test("%-05%");}
 //Null specifier tests
- int nocrash_notrequired_nullspec_basic(void){return test("%");}
- int nocrash_notrequired_nullspec_5w(void){return test("%5");}
- int nocrash_notrequired_nullspec_5wzp(void){return test("%05");}
- int nocrash_notrequired_nullspec_5wzplj(void){return test("%-05");}
- int nocrash_notrequired_nullspec_5wlj(void){return test("%-5");}
+int nocrash_notrequired_nullspec_basic(void){return test("%");}
+int nocrash_notrequired_nullspec_5w(void){return test("%5");}
+int nocrash_notrequired_nullspec_5wzp(void){return test("%05");}
+int nocrash_notrequired_nullspec_5wzplj(void){return test("%-05");}
+int nocrash_notrequired_nullspec_5wlj(void){return test("%-5");}
 
 
 /* -----------------------------------------------------------------------------
@@ -713,60 +713,60 @@ int new2019_negstar_9(void){return test("%0*i", -7, -54);}
 ** 					NO CRASH / NO SEGFAULT TESTS (NOT REQUIRED)
 ** ---------------------------------------------------------------------------*/
 //No-crash-no-segfault test
- int nocrash_notrequired_noarg_1(void){return test("%1$"); }
- int nocrash_notrequired_noarg_2(void){return test("%0"); }
- int nocrash_notrequired_noarg_3(void){return test("% "); }
- int nocrash_notrequired_noarg_5(void){return test("%-"); }
- int nocrash_notrequired_noarg_6(void){return test("%+"); }
- int nocrash_notrequired_noarg_9(void){return test("%23"); }
- int nocrash_notrequired_noarg_10(void){return test("%."); }
- int nocrash_notrequired_noarg_16(void){return test("%p"); }
- int nocrash_notrequired_noarg_17(void){return test("%d"); }
- int nocrash_notrequired_noarg_19(void){return test("%u"); }
- int nocrash_notrequired_noarg_20(void){return test("%x"); }
- int nocrash_notrequired_noarg_21(void){return test("%X"); }
- int nocrash_notrequired_noarg_22(void){return test("%f"); }
- int nocrash_notrequired_noarg_24(void){return test("%c"); }
- int nocrash_notrequired_noarg_25(void){return test("%o"); }
- int nocrash_notrequired_nullarg_1(void){return test("%1$s", NULL); }
- int nocrash_notrequired_nullarg_2(void){return test("%0s", NULL); }
- int nocrash_notrequired_nullarg_3(void){return test("% s", NULL); }
- int nocrash_notrequired_nullarg_5(void){return test("%-s", NULL); }
- int nocrash_notrequired_nullarg_6(void){return test("%+s", NULL); }
- int nocrash_notrequired_nullarg_9(void){return test("%23s", NULL); }
- int nocrash_notrequired_nullarg_10(void){return test("%.s", NULL); }
- int nocrash_notrequired_nullarg_16(void){return test("%p", NULL); }
- int nocrash_notrequired_nullarg_17(void){return test("%d", NULL); }
- int nocrash_notrequired_nullarg_18(void){return test("%b", NULL); }
- int nocrash_notrequired_nullarg_19(void){return test("%u", NULL); }
- int nocrash_notrequired_nullarg_20(void){return test("%x", NULL); }
- int nocrash_notrequired_nullarg_21(void){return test("%X", NULL); }
- int nocrash_notrequired_nullarg_22(void){return test("%f", NULL); }
- int nocrash_notrequired_nullarg_23(void){return test("%s", NULL); }
- int nocrash_notrequired_nullarg_24(void){return test("%c", NULL); }
- int nocrash_notrequired_nullarg_25(void){return test("%o", NULL); }
+int nocrash_notrequired_noarg_1(void){return test("%1$"); }
+int nocrash_notrequired_noarg_2(void){return test("%0"); }
+int nocrash_notrequired_noarg_3(void){return test("% "); }
+int nocrash_notrequired_noarg_5(void){return test("%-"); }
+int nocrash_notrequired_noarg_6(void){return test("%+"); }
+int nocrash_notrequired_noarg_9(void){return test("%23"); }
+int nocrash_notrequired_noarg_10(void){return test("%."); }
+int nocrash_notrequired_noarg_16(void){return test("%p"); }
+int nocrash_notrequired_noarg_17(void){return test("%d"); }
+int nocrash_notrequired_noarg_19(void){return test("%u"); }
+int nocrash_notrequired_noarg_20(void){return test("%x"); }
+int nocrash_notrequired_noarg_21(void){return test("%X"); }
+int nocrash_notrequired_noarg_22(void){return test("%f"); }
+int nocrash_notrequired_noarg_24(void){return test("%c"); }
+int nocrash_notrequired_noarg_25(void){return test("%o"); }
+int nocrash_notrequired_nullarg_1(void){return test("%1$s", NULL); }
+int nocrash_notrequired_nullarg_2(void){return test("%0s", NULL); }
+int nocrash_notrequired_nullarg_3(void){return test("% s", NULL); }
+int nocrash_notrequired_nullarg_5(void){return test("%-s", NULL); }
+int nocrash_notrequired_nullarg_6(void){return test("%+s", NULL); }
+int nocrash_notrequired_nullarg_9(void){return test("%23s", NULL); }
+int nocrash_notrequired_nullarg_10(void){return test("%.s", NULL); }
+int nocrash_notrequired_nullarg_16(void){return test("%p", NULL); }
+int nocrash_notrequired_nullarg_17(void){return test("%d", NULL); }
+int nocrash_notrequired_nullarg_18(void){return test("%b", NULL); }
+int nocrash_notrequired_nullarg_19(void){return test("%u", NULL); }
+int nocrash_notrequired_nullarg_20(void){return test("%x", NULL); }
+int nocrash_notrequired_nullarg_21(void){return test("%X", NULL); }
+int nocrash_notrequired_nullarg_22(void){return test("%f", NULL); }
+int nocrash_notrequired_nullarg_23(void){return test("%s", NULL); }
+int nocrash_notrequired_nullarg_24(void){return test("%c", NULL); }
+int nocrash_notrequired_nullarg_25(void){return test("%o", NULL); }
 //nocrash tests adapted from tests contributed by phtruong
- int nocrash_notrequired_dupflag_d_ljljw(void){return test("%--5d", 42);}
+int nocrash_notrequired_dupflag_d_ljljw(void){return test("%--5d", 42);}
 //nocrash tests that came about as part of the minimal specification
- int nocrash_notrequired_c_prec_1(void){return test("%.4c", 'a');}
- int nocrash_notrequired_c_prec_2(void){return test("%.c", 'a');}
- int nocrash_notrequired_c_zp_1(void){return test("%05c", 'a');}
- int nocrash_notrequired_c_zp_2(void){return test("%0c", 'a');}
- int nocrash_notrequired_c_lj_nowidth(void){return test("%-c", 'a');}
- int nocrash_notrequired_s_zp_1(void){return test("%05s", "hello");}
- int nocrash_notrequired_s_zp_2(void){return test("%0s", "hello");}
- int nocrash_notrequired_s_lj_nowidth(void){return test("%-s", "hello");}
+int nocrash_notrequired_c_prec_1(void){return test("%.4c", 'a');}
+int nocrash_notrequired_c_prec_2(void){return test("%.c", 'a');}
+int nocrash_notrequired_c_zp_1(void){return test("%05c", 'a');}
+int nocrash_notrequired_c_zp_2(void){return test("%0c", 'a');}
+int nocrash_notrequired_c_lj_nowidth(void){return test("%-c", 'a');}
+int nocrash_notrequired_s_zp_1(void){return test("%05s", "hello");}
+int nocrash_notrequired_s_zp_2(void){return test("%0s", "hello");}
+int nocrash_notrequired_s_lj_nowidth(void){return test("%-s", "hello");}
 
 static int ncm_p = 5;
- int nocrash_notrequired_p_prec_1(void){return test("%.4p", &ncm_p);}
- int nocrash_notrequired_p_prec_2(void){return test("%.p", &ncm_p);}
- int nocrash_notrequired_p_zp_1(void){return test("%05p", &ncm_p);}
- int nocrash_notrequired_p_zp_2(void){return test("%0p", &ncm_p);}
- int nocrash_notrequired_p_lj_nowidth(void){return test("%-p", &ncm_p);}
- int nocrash_notrequired_i_lj_nowidth(void){return test("%-i", 42);}
- int nocrash_notrequired_u_lj_nowidth(void){return test("%-u", 42);}
- int nocrash_notrequired_x_lj_nowidth(void){return test("%-x", 42);}
- int nocrash_notrequired_f_lj_nowidth(void){return test("%-f", 42.5);}
+int nocrash_notrequired_p_prec_1(void){return test("%.4p", &ncm_p);}
+int nocrash_notrequired_p_prec_2(void){return test("%.p", &ncm_p);}
+int nocrash_notrequired_p_zp_1(void){return test("%05p", &ncm_p);}
+int nocrash_notrequired_p_zp_2(void){return test("%0p", &ncm_p);}
+int nocrash_notrequired_p_lj_nowidth(void){return test("%-p", &ncm_p);}
+int nocrash_notrequired_i_lj_nowidth(void){return test("%-i", 42);}
+int nocrash_notrequired_u_lj_nowidth(void){return test("%-u", 42);}
+int nocrash_notrequired_x_lj_nowidth(void){return test("%-x", 42);}
+int nocrash_notrequired_f_lj_nowidth(void){return test("%-f", 42.5);}
 
 
 /* -----------------------------------------------------------------------------
@@ -884,7 +884,7 @@ int moul_leftjusty_6(void){return test("|%3i|%-3i|\n", 42, 42);}
 int moul_leftjusty_7(void){return test("%%-4i 42 == |%-4i|\n", 42);}
 
 int moul_star_1(void){return test("%%-*.3s LYDI == |%-*.3s|\n", 5, "LYDI");}
-int moul_star_2(void){return test("%% *.5i 42 == |% *.5i|\n", 4, 42);}
+ int moul_star_2(void){return test("%% *.5i 42 == |% *.5i|\n", 4, 42);}
 int moul_star_3(void){return test("%%*i 42 == |%*i|\n", 5, 42);}
 int moul_star_4(void){return test("%%*i 42 == |%*i|\n", 3, 42);}
 int moul_star_5(void){return test("%%*i 42 == |%*i|\n", 2, 42);}
@@ -1360,16 +1360,16 @@ int		mix_successive_64(void){return ( test("%s", mx_s) + test("%c", mx_c));}
  int bonus_as_i_prec_width_nn_neg_ljaszp_ignoreflag(void){return test("%0+-3.3i", -8462);}
 
 //nocrash tests adapted from tests contributed by phtruong
- int nocrash_notrequired_bonus_as_dupflag_d(void){return test("%++d", 42);}
- int nocrash_notrequired_bonus_as_dupflag_d_ljasljw(void){return test("%-+-5d", 42);}
- int nocrash_notrequired_bonus_as_c_1(void){return test("%+c", 'a');}
- int nocrash_notrequired_bonus_as_c_2(void){return test("%+c", -42);}
- int nocrash_notrequired_bonus_as_s_1(void){return test("%+s", "hello");}
- int nocrash_notrequired_bonus_as_p_1(void){return test("%+p", &ncm_p);}
- int nocrash_notrequired_bonus_as_p_2(void){return test("%+p", &ncm_p);}
- int nocrash_notrequired_bonus_as_u(void){return test("%+u", 42);}
- int nocrash_notrequired_bonus_as_x(void){return test("%+x", 42);}
- int nocrash_notrequired_bonus_as_X(void){return test("%+X", 42);}
+int nocrash_notrequired_bonus_as_dupflag_d(void){return test("%++d", 42);}
+int nocrash_notrequired_bonus_as_dupflag_d_ljasljw(void){return test("%-+-5d", 42);}
+int nocrash_notrequired_bonus_as_c_1(void){return test("%+c", 'a');}
+int nocrash_notrequired_bonus_as_c_2(void){return test("%+c", -42);}
+int nocrash_notrequired_bonus_as_s_1(void){return test("%+s", "hello");}
+int nocrash_notrequired_bonus_as_p_1(void){return test("%+p", &ncm_p);}
+int nocrash_notrequired_bonus_as_p_2(void){return test("%+p", &ncm_p);}
+int nocrash_notrequired_bonus_as_u(void){return test("%+u", 42);}
+int nocrash_notrequired_bonus_as_x(void){return test("%+x", 42);}
+int nocrash_notrequired_bonus_as_X(void){return test("%+X", 42);}
 
 
 /* -----------------------------------------------------------------------------
@@ -1542,16 +1542,16 @@ int		mix_successive_64(void){return ( test("%s", mx_s) + test("%c", mx_c));}
  int bonus_sp_i_prec_width_nn_neg_ljzpsp_ignoreflag(void){return test("% 0-3.3i", -8462);}
 
 //nocrash tests adapted from tests contributed by phtruong
- int nocrash_notrequired_bonus_sp_dupflag_d(void){return test("%  d", 42);}
+int nocrash_notrequired_bonus_sp_dupflag_d(void){return test("%  d", 42);}
 //nocrash tests that came about as part of the minimal specification
- int nocrash_notrequired_bonus_sp_c_1(void){return test("% c", 'a');}
- int nocrash_notrequired_bonus_sp_c_2(void){return test("% c", -42);}
- int nocrash_notrequired_bonus_sp_s_1(void){return test("% s", "hello");}
- int nocrash_notrequired_bonus_sp_p_1(void){return test("% p", &ncm_p);}
- int nocrash_notrequired_bonus_sp_p_2(void){return test("% p", &ncm_p);}
- int nocrash_notrequired_bonus_sp_u(void){return test("% u", 42);}
- int nocrash_notrequired_bonus_sp_x(void){return test("% x", 42);}
- int nocrash_notrequired_bonus_sp_X(void){return test("% X", 42);}
+int nocrash_notrequired_bonus_sp_c_1(void){return test("% c", 'a');}
+int nocrash_notrequired_bonus_sp_c_2(void){return test("% c", -42);}
+int nocrash_notrequired_bonus_sp_s_1(void){return test("% s", "hello");}
+int nocrash_notrequired_bonus_sp_p_1(void){return test("% p", &ncm_p);}
+int nocrash_notrequired_bonus_sp_p_2(void){return test("% p", &ncm_p);}
+int nocrash_notrequired_bonus_sp_u(void){return test("% u", 42);}
+int nocrash_notrequired_bonus_sp_x(void){return test("% x", 42);}
+int nocrash_notrequired_bonus_sp_X(void){return test("% X", 42);}
 
 
 /* -----------------------------------------------------------------------------
@@ -1666,18 +1666,18 @@ int		mix_successive_64(void){return ( test("%s", mx_s) + test("%c", mx_c));}
  int bonus_af_X_prec_width_nn_pos_ljzpaf_ignoreflag(void){return test("%#0-3.3X", 6983);}
 
 //No-crash-no-segfault test
- int nocrash_notrequired_bonus_af_noarg_4(void){return test("%#"); }
- int nocrash_notrequired_bonus_af_nullarg_4(void){return test("%#s", NULL); }
+int nocrash_notrequired_bonus_af_noarg_4(void){return test("%#"); }
+int nocrash_notrequired_bonus_af_nullarg_4(void){return test("%#s", NULL); }
 //nocrash tests adapted from tests contributed by phtruong
- int nocrash_notrequired_bonus_af_dupflag_x(void){return test("%##x", 42);}
- int nocrash_notrequired_bonus_af_dupflag_xasasljw(void){return test("%#++#-5x", 42);}
+int nocrash_notrequired_bonus_af_dupflag_x(void){return test("%##x", 42);}
+int nocrash_notrequired_bonus_af_dupflag_xasasljw(void){return test("%#++#-5x", 42);}
 //nocrash tests that came about as part of the minimal specification
- int nocrash_notrequired_bonus_af_c(void){return test("%#c", 'a');}
- int nocrash_notrequired_bonus_af_s(void){return test("%#s", "hello");}
- int nocrash_notrequired_bonus_af_p(void){return test("%#p", &ncm_p);}
- int nocrash_notrequired_bonus_af_d(void){return test("%#d", 42);}
- int nocrash_notrequired_bonus_af_i(void){return test("%#i", 42);}
- int nocrash_notrequired_bonus_af_u(void){return test("%#u", 42);}
+int nocrash_notrequired_bonus_af_c(void){return test("%#c", 'a');}
+int nocrash_notrequired_bonus_af_s(void){return test("%#s", "hello");}
+int nocrash_notrequired_bonus_af_p(void){return test("%#p", &ncm_p);}
+int nocrash_notrequired_bonus_af_d(void){return test("%#d", 42);}
+int nocrash_notrequired_bonus_af_i(void){return test("%#i", 42);}
+int nocrash_notrequired_bonus_af_u(void){return test("%#u", 42);}
 
 
 /* -----------------------------------------------------------------------------
@@ -1797,7 +1797,7 @@ int		mix_successive_64(void){return ( test("%s", mx_s) + test("%c", mx_c));}
  int bonus_assp_i_prec_width_nn_neg_ljaszpsp_ignoreflag(void){return test("% 0+-3.3i", -8462);}
 
 //nocrash tests adapted from tests contributed by phtruong
- int nocrash_notrequired_bonus_assp_dupflag_d_spassp(void){return test("% + d", 42);}
+int nocrash_notrequired_bonus_assp_dupflag_d_spassp(void){return test("% + d", 42);}
 
 
 /* -----------------------------------------------------------------------------
@@ -2102,52 +2102,52 @@ static unsigned long  		ulmax = 9223372036854775807;
  int bonus_length_X_ll_n_l_af(void){return test("%#llx%u%#lX", ull_pos_1, ui_pos_1, ul_pos_1);}
 
 //No-crash-no-segfault test
- int nocrash_notrequired_bonus_length_noarg_11(void){return test("%hh"); }
- int nocrash_notrequired_bonus_length_noarg_12(void){return test("%h"); }
- int nocrash_notrequired_bonus_length_noarg_13(void){return test("%ll"); }
- int nocrash_notrequired_bonus_length_noarg_14(void){return test("%l"); }
- int nocrash_notrequired_bonus_length_nullarg_11(void){return test("%hhs", NULL); }
- int nocrash_notrequired_bonus_length_nullarg_12(void){return test("%hs", NULL); }
- int nocrash_notrequired_bonus_length_nullarg_13(void){return test("%lls", NULL); }
- int nocrash_notrequired_bonus_length_nullarg_14(void){return test("%ls", NULL); }
- int nocrash_notrequired_bonus_length_c_hh(void){return test("%hhc", 'a');}
- int nocrash_notrequired_bonus_length_c_h(void){return test("%hc", 'a');}
- int nocrash_notrequired_bonus_length_c_l(void){return test("%lc", 'a');}
- int nocrash_notrequired_bonus_length_c_ll(void){return test("%llc", 'a');}
- int nocrash_notrequired_bonus_length_s_hh(void){return test("%hhs", "hello");}
- int nocrash_notrequired_bonus_length_s_h(void){return test("%hs", "hello");}
- int nocrash_notrequired_bonus_length_s_l(void){return test("%s", "hello");}
- int nocrash_notrequired_bonus_length_s_ll(void){return test("%lls", "hello");}
- int nocrash_notrequired_bonus_length_p_hh(void){return test("%hhp", &ncm_p);}
- int nocrash_notrequired_bonus_length_p_h(void){return test("%hp", &ncm_p);}
- int nocrash_notrequired_bonus_length_p_l(void){return test("%lp", &ncm_p);}
- int nocrash_notrequired_bonus_length_p_ll(void){return test("%llp", &ncm_p);}
- int nocrash_notrequired_bonus_length_d_hhh(void){return test("%hhhd", 42);}
- int nocrash_notrequired_bonus_length_d_hhhh(void){return test("%hhhhd", 42);}
- int nocrash_notrequired_bonus_length_d_hhl(void){return test("%hhld", 42);}
- int nocrash_notrequired_bonus_length_d_hhll(void){return test("%hhlld", 42);}
- int nocrash_notrequired_bonus_length_d_llh(void){return test("%llhd", 42);}
- int nocrash_notrequired_bonus_length_d_lll(void){return test("%llld", 42);}
- int nocrash_notrequired_bonus_length_i_hhh(void){return test("%hhhi", 42);}
- int nocrash_notrequired_bonus_length_u_hhh(void){return test("%hhhu", 42);}
- int nocrash_notrequired_bonus_length_u_hhhh(void){return test("%hhhhu", 42);}
- int nocrash_notrequired_bonus_length_u_hhl(void){return test("%hhlu", 42);}
- int nocrash_notrequired_bonus_length_u_hhll(void){return test("%hhllu", 42);}
- int nocrash_notrequired_bonus_length_u_llh(void){return test("%llhu", 42);}
- int nocrash_notrequired_bonus_length_u_lll(void){return test("%lllu", 42);}
- int nocrash_notrequired_bonus_length_x_hhh(void){return test("%hhhx", 42);}
- int nocrash_notrequired_bonus_length_x_hhhh(void){return test("%hhhhx", 42);}
- int nocrash_notrequired_bonus_length_x_hhl(void){return test("%hhlx", 42);}
- int nocrash_notrequired_bonus_length_x_hhll(void){return test("%hhllx", 42);}
- int nocrash_notrequired_bonus_length_x_llh(void){return test("%llhx", 42);}
- int nocrash_notrequired_bonus_length_x_lll(void){return test("%lllx", 42);}
- int nocrash_notrequired_bonus_length_X_hhh(void){return test("%hhhX", 42);}
- int nocrash_notrequired_bonus_length_X_llh(void){return test("%llhX", 42);}
- int nocrash_notrequired_bonus_length_f_hh(void){return test("%hhf", 42.5);}
- int nocrash_notrequired_bonus_length_f_h(void){return test("%hf", 42.5);}
- int nocrash_notrequired_bonus_length_f_ll(void){return test("%llf", 42.5);}
- int nocrash_notrequired_bonus_length_f_lll(void){return test("%lllf", 42.5);}
- int nocrash_notrequired_bonus_length_f_llll(void){return test("%llllf", 42.5);}
+int nocrash_notrequired_bonus_length_noarg_11(void){return test("%hh"); }
+int nocrash_notrequired_bonus_length_noarg_12(void){return test("%h"); }
+int nocrash_notrequired_bonus_length_noarg_13(void){return test("%ll"); }
+int nocrash_notrequired_bonus_length_noarg_14(void){return test("%l"); }
+int nocrash_notrequired_bonus_length_nullarg_11(void){return test("%hhs", NULL); }
+int nocrash_notrequired_bonus_length_nullarg_12(void){return test("%hs", NULL); }
+int nocrash_notrequired_bonus_length_nullarg_13(void){return test("%lls", NULL); }
+int nocrash_notrequired_bonus_length_nullarg_14(void){return test("%ls", NULL); }
+int nocrash_notrequired_bonus_length_c_hh(void){return test("%hhc", 'a');}
+int nocrash_notrequired_bonus_length_c_h(void){return test("%hc", 'a');}
+int nocrash_notrequired_bonus_length_c_l(void){return test("%lc", 'a');}
+int nocrash_notrequired_bonus_length_c_ll(void){return test("%llc", 'a');}
+int nocrash_notrequired_bonus_length_s_hh(void){return test("%hhs", "hello");}
+int nocrash_notrequired_bonus_length_s_h(void){return test("%hs", "hello");}
+int nocrash_notrequired_bonus_length_s_l(void){return test("%s", "hello");}
+int nocrash_notrequired_bonus_length_s_ll(void){return test("%lls", "hello");}
+int nocrash_notrequired_bonus_length_p_hh(void){return test("%hhp", &ncm_p);}
+int nocrash_notrequired_bonus_length_p_h(void){return test("%hp", &ncm_p);}
+int nocrash_notrequired_bonus_length_p_l(void){return test("%lp", &ncm_p);}
+int nocrash_notrequired_bonus_length_p_ll(void){return test("%llp", &ncm_p);}
+int nocrash_notrequired_bonus_length_d_hhh(void){return test("%hhhd", 42);}
+int nocrash_notrequired_bonus_length_d_hhhh(void){return test("%hhhhd", 42);}
+int nocrash_notrequired_bonus_length_d_hhl(void){return test("%hhld", 42);}
+int nocrash_notrequired_bonus_length_d_hhll(void){return test("%hhlld", 42);}
+int nocrash_notrequired_bonus_length_d_llh(void){return test("%llhd", 42);}
+int nocrash_notrequired_bonus_length_d_lll(void){return test("%llld", 42);}
+int nocrash_notrequired_bonus_length_i_hhh(void){return test("%hhhi", 42);}
+int nocrash_notrequired_bonus_length_u_hhh(void){return test("%hhhu", 42);}
+int nocrash_notrequired_bonus_length_u_hhhh(void){return test("%hhhhu", 42);}
+int nocrash_notrequired_bonus_length_u_hhl(void){return test("%hhlu", 42);}
+int nocrash_notrequired_bonus_length_u_hhll(void){return test("%hhllu", 42);}
+int nocrash_notrequired_bonus_length_u_llh(void){return test("%llhu", 42);}
+int nocrash_notrequired_bonus_length_u_lll(void){return test("%lllu", 42);}
+int nocrash_notrequired_bonus_length_x_hhh(void){return test("%hhhx", 42);}
+int nocrash_notrequired_bonus_length_x_hhhh(void){return test("%hhhhx", 42);}
+int nocrash_notrequired_bonus_length_x_hhl(void){return test("%hhlx", 42);}
+int nocrash_notrequired_bonus_length_x_hhll(void){return test("%hhllx", 42);}
+int nocrash_notrequired_bonus_length_x_llh(void){return test("%llhx", 42);}
+int nocrash_notrequired_bonus_length_x_lll(void){return test("%lllx", 42);}
+int nocrash_notrequired_bonus_length_X_hhh(void){return test("%hhhX", 42);}
+int nocrash_notrequired_bonus_length_X_llh(void){return test("%llhX", 42);}
+int nocrash_notrequired_bonus_length_f_hh(void){return test("%hhf", 42.5);}
+int nocrash_notrequired_bonus_length_f_h(void){return test("%hf", 42.5);}
+int nocrash_notrequired_bonus_length_f_ll(void){return test("%llf", 42.5);}
+int nocrash_notrequired_bonus_length_f_lll(void){return test("%lllf", 42.5);}
+int nocrash_notrequired_bonus_length_f_llll(void){return test("%llllf", 42.5);}
 
 
 /* -----------------------------------------------------------------------------	
@@ -5381,15 +5381,15 @@ static char				mx_hhi = 'F';
  int notinsubject_o_prec0val0_waflj(void){return test("%#-5.0o", 0);}
  int notinsubject_o_prec0val0_waflj_impl(void){return test("%#-5.o", 0);}
 
- int nocrash_notinsubject_notrequired_o_sp(void){return test("% o", 42);}
- int nocrash_notinsubject_notrequired_o_hhh(void){return test("%hhho", 42);}
- int nocrash_notinsubject_notrequired_o_hhhh(void){return test("%hhhho", 42);}
- int nocrash_notinsubject_notrequired_o_hhl(void){return test("%hhlo", 42);}
- int nocrash_notinsubject_notrequired_o_hhll(void){return test("%hhllo", 42);}
- int nocrash_notinsubject_notrequired_o_llh(void){return test("%llho", 42);}
- int nocrash_notinsubject_notrequired_o_lll(void){return test("%lllo", 42);}
- int nocrash_notinsubject_notrequired_o_lj_nowidth(void){return test("%-o", 42);}
- int nocrash_notinsubject_notrequired_o_as(void){return test("%+o", 42);}
+int nocrash_notinsubject_notrequired_o_sp(void){return test("% o", 42);}
+int nocrash_notinsubject_notrequired_o_hhh(void){return test("%hhho", 42);}
+int nocrash_notinsubject_notrequired_o_hhhh(void){return test("%hhhho", 42);}
+int nocrash_notinsubject_notrequired_o_hhl(void){return test("%hhlo", 42);}
+int nocrash_notinsubject_notrequired_o_hhll(void){return test("%hhllo", 42);}
+int nocrash_notinsubject_notrequired_o_llh(void){return test("%llho", 42);}
+int nocrash_notinsubject_notrequired_o_lll(void){return test("%lllo", 42);}
+int nocrash_notinsubject_notrequired_o_lj_nowidth(void){return test("%-o", 42);}
+int nocrash_notinsubject_notrequired_o_as(void){return test("%+o", 42);}
 
  int notinsubject_moul_o_1(void){return test("%o", 42);}
  int notinsubject_moul_o_2(void){return test("Kashim a %o histoires à raconter", 1001);}
@@ -5676,9 +5676,9 @@ int u_neg_prec_star_01(void){return test("%.*u", -3, 12345);}
 int u_neg_prec_star_02(void){return test("%.*u", -1, 12345);}
 int u_neg_prec_star_03(void){return test("%.*u", -1, 0);}
 // %o negative precision
-int notintsubject_o_neg_prec_star_01(void){return test("%.*o", -3, 12345);}
-int notintsubject_o_neg_prec_star_02(void){return test("%.*o", -1, 12345);}
-int notintsubject_o_neg_prec_star_03(void){return test("%.*o", -1, 0);}
+ int notintsubject_o_neg_prec_star_01(void){return test("%.*o", -3, 12345);}
+ int notintsubject_o_neg_prec_star_02(void){return test("%.*o", -1, 12345);}
+ int notintsubject_o_neg_prec_star_03(void){return test("%.*o", -1, 0);}
 // %x negative precision
 int x_neg_prec_star_01(void){return test("%.*x", -3, 12345);}
 int x_neg_prec_star_02(void){return test("%.*x", -1, 12345);}

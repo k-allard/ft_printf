@@ -6,14 +6,14 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/14 16:37:04 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/16 21:42:57 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_processor.h"
 
 static void ft_ptr_aligned(char *arg, int dig, t_format* argformat)
-{
+{	
 	int n;
 	
 	n = argformat->width - dig;
@@ -31,11 +31,13 @@ static void ft_ptr_aligned(char *arg, int dig, t_format* argformat)
 	}
 }
 
-t_ok		ft_pointer_type(va_list* argptr, t_format* argformat)
+t_ok		ft_pointer_type(va_list* argptr, t_format* argformat, int* count)
 {
 	unsigned long int arg;
 	char* print;
 	int dig;
+
+	*count = *count + 0;
 
 	arg = (unsigned long int)va_arg(*argptr, unsigned long int);
 	print = ft_itoa_convert(arg, 16);
