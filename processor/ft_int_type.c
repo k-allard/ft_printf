@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/16 22:59:10 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/16 23:14:26 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,11 +119,8 @@ t_ok		ft_int_type(va_list* argptr, t_format* argformat, int* count)
 	int arg;
 	int n;
 	int dig;
-	
-	// *count = *count + 0;
-	
+		
 	arg = va_arg(*argptr, int);
-	
 	n = arg;
 	dig = 0;
 	while (n)
@@ -147,16 +144,14 @@ t_ok		ft_int_type(va_list* argptr, t_format* argformat, int* count)
 			(*count) += dig;
 			return OK;
 		}
+		n = 0; //мб не нужно
 		if (arg < 0)
 		{
 			write(1, "-", 1);
-			n = argformat->precision - dig + 1; //n - число нулей перед числом для соблюдения точности
-			writezeros(n);
-			ft_putnbr_fd(-arg, 1);
-			(*count) += n + dig;		//it works!!
-			return OK;
+			n = 1; //n - число нулей перед числом для соблюдения точности
+			arg = -arg;
 		}
-		n = argformat->precision - dig; //n - число нулей перед числом для соблюдения точности
+		n += argformat->precision - dig; //n - число нулей перед числом для соблюдения точности
 		writezeros(n);
 		ft_putnbr_fd(arg, 1);
 		(*count) += n + dig;
