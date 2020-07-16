@@ -107,8 +107,8 @@ int main()
 
     int n;
 
-    n = ft_printf("[%-6d]", -123);
-    printf("\n%d", n - 2);
+    n = ft_printf("[%-06d]", -123);
+    printf("\n%d\n", n - 2);
 
     return 0;
 

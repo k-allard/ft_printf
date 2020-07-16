@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/16 23:14:26 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/16 23:35:01 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,30 +59,18 @@ static void ft_int_rightaligned(int arg, int dig, t_format* argformat, int* coun
 	
 	if (!argformat->precision_is_present || dig >= argformat->precision) //точность значения не имеет
 	{
-		if (arg < 0)
-		{
-			if (argformat->flags.zero)
-			{
-				write(1, "-", 1);
-				n = argformat->width - dig;
-				writezeros(n);
-				ft_putnbr_fd(-arg, 1);
-				(*count) += n + dig;
-				return ;
-			}
-			n = argformat->width - dig;
-			writespaces(n);
-			ft_putnbr_fd(arg, 1);
-			(*count) += n + dig;
-			return ;
-		}
 		n = argformat->width - dig;
-		if (argformat->flags.zero)
-			writezeros(n);
-		else
-			writespaces(n);
-		if (dig)
-			ft_putnbr_fd(arg, 1);
+		if (arg < 0 && argformat->flags.zero)
+        {
+            write(1, "-", 1);
+            arg = -arg;
+        } 
+        if (argformat->flags.zero)
+            writezeros(n);
+        else
+            writespaces(n);
+        if (dig)
+            ft_putnbr_fd(arg, 1);
 		(*count) += n + dig;
 		return ;
 	}
