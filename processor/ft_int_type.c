@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 18:05:21 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/17 21:33:16 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,7 @@ t_ok		ft_int_type(va_list* argptr, t_format* argformat, int* count)
 	int dig;
 		
 	arg = va_arg(*argptr, int);
-	n = arg;
-	dig = 0;
-	while (n)
-	{
-		n /= 10;
-		dig++;
-	}
-	if (arg <= 0)
-		dig++;
+	dig = digcount(arg);
 	if (argformat->precision_is_present)
 	{
 		argformat->flags.zero = 0;     //Для типов d, i, o, u, x, X, если точность указана, флаг 0 игнорируется.
@@ -121,10 +113,6 @@ t_ok		ft_int_type(va_list* argptr, t_format* argformat, int* count)
 		(*count) += dig;
 		return OK;
 	}
-	if (argformat->flags.minus)
-		ft_int_leftaligned(arg, dig, argformat, count);
-	else
-		ft_int_rightaligned(arg, dig, argformat, count);
-
+	argformat->flags.minus ? ft_int_leftaligned(arg, dig, argformat, count) : ft_int_rightaligned(arg, dig, argformat, count);
 	return OK;
 }

@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/12 19:06:38 by csnowbal          #+#    #+#             */
-/*   Updated: 2020/07/17 16:41:31 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/17 21:19:06 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@ int	main(void)
 {
     int std;
     int my;
-    // // ("%10.2p", NULL)
-    // printf("\n\n1) standart PRINTF : |");
-    // std = printf("%10.2p", NULL);
-    // printf("|\n");
-    // ft_printf("1) my       PRINTF : |");
-    // my = ft_printf("%10.2p", NULL);
-    // ft_printf("|\n");
-    // printf("___________________\n");
-    // printf("Output: %d vs %d\n\n", std, my);
+    // ("%10.2p", NULL)
+    printf("\n\n1) standart PRINTF : |");
+    std = printf("%10.2p", NULL);
+    printf("|\n");
+    ft_printf("1) my       PRINTF : |");
+    my = ft_printf("%10.2p", NULL);
+    ft_printf("|\n");
+    printf("___________________\n");
+    printf("Output: %d vs %d\n\n", std, my);
     
-    // // ("%2.5p", NULL)
-    // printf("2) standart PRINTF : |");
-    // std = printf("%2.5p", NULL);
-    // printf("|\n");
-    // ft_printf("2) my       PRINTF : |");
-    // my = ft_printf("%2.5p", NULL);
-    // ft_printf("|\n");
-    // printf("___________________\n");
-    // printf("Output: %d vs %d\n\n", std, my);
+    // ("%2.5p", NULL)
+    printf("2) standart PRINTF : |");
+    std = printf("%2.5p", NULL);
+    printf("|\n");
+    ft_printf("2) my       PRINTF : |");
+    my = ft_printf("%2.5p", NULL);
+    ft_printf("|\n");
+    printf("___________________\n");
+    printf("Output: %d vs %d\n\n", std, my);
     
         // char *str = "HELLO";
         printf("\n\nstandart PRINTF : |");
@@ -48,35 +48,35 @@ int	main(void)
         printf("___________________\n");
         printf("Output: %d vs %d\n\n", std, my);
 
-    // // ("kekw %Z")
-    // printf("\n\n4) standart PRINTF : |");
-    // std = printf("kekw %Z");
-    // printf("|\n");
-    // ft_printf("4) my       PRINTF : |");
-    // my = ft_printf("kekw %Z");
-    // ft_printf("|\n");
-    // printf("___________________\n");
-    // printf("Output: %d vs %d\n\n", std, my);
+    // ("kekw %Z")
+    printf("\n\n4) standart PRINTF : |");
+    std = printf("kekw %Z");
+    printf("|\n");
+    ft_printf("4) my       PRINTF : |");
+    my = ft_printf("kekw %Z");
+    ft_printf("|\n");
+    printf("___________________\n");
+    printf("Output: %d vs %d\n\n", std, my);
 
     
-    // // ("%")
-    // printf("5) standart PRINTF : |");
-    // std = printf("%");
-    // printf("|\n");
-    // ft_printf("5) my       PRINTF : |");
-    // my = ft_printf("%");
-    // ft_printf("|\n");
-    // printf("___________________\n");
-    // printf("Output: %d vs %d\n\n", std, my);
+    // ("%")
+    printf("5) standart PRINTF : |");
+    std = printf("%");
+    printf("|\n");
+    ft_printf("5) my       PRINTF : |");
+    my = ft_printf("%");
+    ft_printf("|\n");
+    printf("___________________\n");
+    printf("Output: %d vs %d\n\n", std, my);
     
-    // // ("%%%")
-    // printf("6) standart PRINTF : |");
-    // std = printf("%%%");
-    // printf("|\n");
-    // ft_printf("6) my       PRINTF : |");
-    // my = ft_printf("%%%");
-    // ft_printf("|\n");
-    // printf("___________________\n");
-    // printf("Output: %d vs %d\n\n", std, my);
+    // ("%%%")
+    printf("6) standart PRINTF : |");
+    std = printf("%%%");
+    printf("|\n");
+    ft_printf("6) my       PRINTF : |");
+    my = ft_printf("%%%");
+    ft_printf("|\n");
+    printf("___________________\n");
+    printf("Output: %d vs %d\n\n", std, my);
 
 }

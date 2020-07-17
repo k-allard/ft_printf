@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 17:14:35 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/17 21:15:52 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ t_ok		ft_un_xx_type(va_list* argptr, t_format* argformat, int* count);
 void        writespaces(int n, int* count);
 void        writezeros(int n, int* count);
 void		increase_to_width(t_format* argformat, int n, int* count);
+int         digcount(long long arg);
+
 
 
 #endif

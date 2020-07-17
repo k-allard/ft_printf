@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:26:26 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 17:10:43 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/17 21:14:06 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,21 @@ void increase_to_width(t_format* argformat, int n, int* count)
 		writezeros(n, count);
 	else
 		writespaces(n, count);
+}
+
+int digcount(long long arg)
+{
+	long long n;
+	int dig;
+
+	n = arg;
+	dig = 0;
+	while(n)
+	{
+		n /= 10;
+		dig++;
+	}
+	if (arg <= 0)
+		dig++;
+	return(dig);
 }
