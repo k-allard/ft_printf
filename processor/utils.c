@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:26:26 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 21:14:06 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/17 21:57:01 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,10 @@ int digcount(long long arg)
 	if (arg <= 0)
 		dig++;
 	return(dig);
+}
+
+void		putnbr_count(int n, int dig, int *count)
+{
+	ft_putnbr_fd(n, 1);
+	(*count) += dig;
 }

@@ -6,76 +6,81 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 21:33:16 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/17 22:01:49 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_processor.h"
 
 static void ft_int_leftaligned(int arg, int dig, t_format* argformat, int* count)
-{
-	int n; 	//n - кол-во пробелов/нулей до требуемой длины
-	
+{	
 	if (!argformat->precision_is_present || dig >= argformat->precision) //точность не нужна
 	{
 		if (dig)
-		{
-			ft_putnbr_fd(arg, 1);
-			(*count) += dig;
-		}
+			putnbr_count(arg, dig, count);
 		increase_to_width(argformat, argformat->width - dig, count);
 		return ;
 	}
-	//надо дополнять инт до точности
 	if (arg < 0)
 	{
 		write(1, "-", 1);
 		writezeros(argformat->precision - dig + 1, count);
-		ft_putnbr_fd(-arg, 1);
-		(*count) += dig;
+		putnbr_count(-arg, dig, count);
 		writespaces(argformat->width - argformat->precision - 1, count);
 		return ;
 	}
 	writezeros(argformat->precision - dig, count);
-	ft_putnbr_fd(arg, 1);
-	(*count) += dig;
+	putnbr_count(arg, dig, count);
 	increase_to_width(argformat, argformat->width - argformat->precision, count);
 }
 
 static void ft_int_rightaligned(int arg, int dig, t_format* argformat, int* count)
-{
-	int n; 	//n - кол-во пробелов/нулей до требуемой длины
-	
+{	
 	if (!argformat->precision_is_present || dig >= argformat->precision) //точность значения не имеет
 	{
-		n = argformat->width - dig;
 		if (arg < 0 && argformat->flags.zero)
         {
             write(1, "-", 1);
             arg = -arg;
         } 
-        increase_to_width(argformat, n, count);
+        increase_to_width(argformat, argformat->width - dig, count);
         if (dig)
-		{
-            ft_putnbr_fd(arg, 1);
-			(*count) += dig;
-		}
+            putnbr_count(arg, dig, count);
 		return ;
 	}
-	//далее точность значение имеет
 	if (arg < 0)
 	{
 		increase_to_width(argformat, argformat->width - argformat->precision - 1, count);
 		write(1, "-", 1);
 		writezeros(argformat->precision - dig + 1, count);
-		ft_putnbr_fd(-arg, 1);
-		(*count) += dig;
+		putnbr_count(-arg, dig, count);
 		return ;
 	}
 	increase_to_width(argformat, argformat->width - argformat->precision, count);
 	writezeros(argformat->precision - dig, count);
-	ft_putnbr_fd(arg, 1);
-	(*count) += dig;
+	putnbr_count(arg, dig, count);
+}
+
+static t_ok no_width(int arg, int dig, t_format* argformat, int* count)
+{
+	int n;
+	
+	if (dig > argformat->precision)	//точность тоже не нужна
+	{
+		putnbr_count(arg, dig, count);
+		return OK;
+	}
+	n = 0;
+	if (arg < 0)
+	{
+		write(1, "-", 1);
+		n = 1;
+		arg = -arg;
+	}
+	n += argformat->precision - dig;
+	writezeros(n, count);
+	putnbr_count(arg, dig, count);
+	return OK;
 }
 
 t_ok		ft_int_type(va_list* argptr, t_format* argformat, int* count)
@@ -93,26 +98,7 @@ t_ok		ft_int_type(va_list* argptr, t_format* argformat, int* count)
 			dig = 0;
 	}
 	if (argformat->width < argformat->precision || argformat->width < dig) //случаи когда ширина и флаги выравнивания не нужны
-	{
-		if (dig > argformat->precision)	//число < точности -> точность тоже не нужна
-		{
-			ft_putnbr_fd(arg, 1);
-			(*count) += dig;
-			return OK;
-		}
-		n = 0; //мб не нужно
-		if (arg < 0)
-		{
-			write(1, "-", 1);
-			n = 1; //n - число нулей перед числом для соблюдения точности
-			arg = -arg;
-		}
-		n += argformat->precision - dig; //n - число нулей перед числом для соблюдения точности
-		writezeros(n, count);
-		ft_putnbr_fd(arg, 1);
-		(*count) += dig;
-		return OK;
-	}
+		return(no_width(arg, dig, argformat, count));
 	argformat->flags.minus ? ft_int_leftaligned(arg, dig, argformat, count) : ft_int_rightaligned(arg, dig, argformat, count);
 	return OK;
 }
