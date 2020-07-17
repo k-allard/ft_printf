@@ -6,48 +6,49 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/16 21:39:58 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/17 16:37:03 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_processor.h"
 
-static void ft_str_aligned(char *arg, int symb, t_format* argformat)
+static void ft_str_aligned(char *arg, int symb, t_format* argformat, int *count)
 {
 	int n;
+
 	n = argformat->width - symb;
-	
-	if (argformat->flags.minus) 	// ft_str_leftaligned
+	if (argformat->flags.minus)
 	{
 		ft_putstr_fd(arg, 1);
-		while (n--)
-			write(1, " ", 1);
+		writespaces(n);
 	}
-	else 							// ft_str_rightaligned
+	else
 	{
-		while (n--)
-			write(1, " ", 1);
+		writespaces(n);
 		ft_putstr_fd(arg, 1);
 	}
+	(*count) += symb + n;
 }
 
-static t_ok ft_nullstring(t_format* argformat)
+static t_ok ft_nullstring(t_format* argformat, int *count)
 {
 	char *arg;
-	int symb = 6;
-	
+	int symb;
+
+	symb = 6;
 	if (argformat->precision_is_present && argformat->precision < symb) // то есть (null) обрежется
 		symb = argformat->precision;
-
 	if (!(arg = ft_strnew(symb)))
 		return ERROR;
 	ft_strlcpy(arg, "(null)", symb + 1);
-	
 	if (argformat->width <= symb) 		//ширина и флаги не будут имеют значения
+	{
 		ft_putstr_fd(arg, 1);
+		(*count) += symb;
+	}
 	else
-		ft_str_aligned(arg, symb, argformat);
-	free(arg);	
+		ft_str_aligned(arg, symb, argformat, count);
+	free(arg);
 	return OK;
 }
 
@@ -57,37 +58,36 @@ t_ok		ft_string_type(va_list *argptr, t_format *argformat, int *count)
 	// int n;
 	char *arg_new;
 	int symb;	//кол-во символов в строке
-	
-	*count = *count + 0;
-	
+		
 	arg = va_arg(*argptr, char *);
-
-	if (arg == NULL)
+	if (!arg)
 	{
-		ft_nullstring(argformat);
+		ft_nullstring(argformat, count);
 		return OK;
 	}
-	
 	symb = ft_strlen(arg);
-	
-	if (argformat->precision_is_present && argformat->precision < symb)
+	if (argformat->precision_is_present && argformat->precision < symb) 	//точность имеет значение
 	{
 		if (!(arg_new = ft_strnew(argformat->precision)))
 			return (ERROR);
 		ft_strlcpy(arg_new, arg, argformat->precision + 1);
 		symb = argformat->precision;
 		if (argformat->width <= symb) 		//ширина и флаги не будут имеют значения
+		{
 			ft_putstr_fd(arg_new, 1);
+			(*count) += symb;
+		}
 		else
-			ft_str_aligned(arg_new, symb, argformat);
+			ft_str_aligned(arg_new, symb, argformat, count);
 		free(arg_new);
 	}
 	//точность больше не имеет значения
 	else if (argformat->width <= symb) 		//ширина и флаги не будут имеют значения
-			ft_putstr_fd(arg, 1);
+	{
+		ft_putstr_fd(arg, 1);
+		(*count) += symb;
+	}
 	else
-			ft_str_aligned(arg, symb, argformat);
-
-
+		ft_str_aligned(arg, symb, argformat, count);
 	return OK;
 }

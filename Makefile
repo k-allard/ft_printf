@@ -6,7 +6,7 @@
 #    By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 22:32:54 by kallard           #+#    #+#              #
-#    Updated: 2020/07/16 21:47:21 by kallard          ###   ########.fr        #
+#    Updated: 2020/07/17 12:29:55 by kallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,7 @@ SRC = parser/ft_flags_parse.c \
 
 OBJS = $(SRC:.c=.o)
 
-
-FLAGS = -g -Wall -Wextra -Werror
+FLAGS = -g
 
 CC = clang
 
