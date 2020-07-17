@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/16 23:35:01 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/17 18:05:21 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,38 +19,27 @@ static void ft_int_leftaligned(int arg, int dig, t_format* argformat, int* count
 	if (!argformat->precision_is_present || dig >= argformat->precision) //точность не нужна
 	{
 		if (dig)
+		{
 			ft_putnbr_fd(arg, 1);
-		n = argformat->width - dig;
-		if (argformat->flags.zero)
-			writezeros(n);
-		else
-			writespaces(n);
-		(*count) += n + dig;
+			(*count) += dig;
+		}
+		increase_to_width(argformat, argformat->width - dig, count);
 		return ;
 	}
 	//надо дополнять инт до точности
 	if (arg < 0)
 	{
 		write(1, "-", 1);
-		n = argformat->precision - dig + 1;
-		writezeros(n);
+		writezeros(argformat->precision - dig + 1, count);
 		ft_putnbr_fd(-arg, 1);
-		(*count) += n + dig;
-		n = argformat->width - argformat->precision - 1;
-		writespaces(n);
-		(*count) += n;
+		(*count) += dig;
+		writespaces(argformat->width - argformat->precision - 1, count);
 		return ;
 	}
-	n = argformat->precision - dig;
-	writezeros(n);
+	writezeros(argformat->precision - dig, count);
 	ft_putnbr_fd(arg, 1);
-	(*count) += n + dig;
-	n = argformat->width - argformat->precision;
-	if (argformat->flags.zero)
-		writezeros(n);
-	else
-		writespaces(n);
-	(*count) += n;
+	(*count) += dig;
+	increase_to_width(argformat, argformat->width - argformat->precision, count);
 }
 
 static void ft_int_rightaligned(int arg, int dig, t_format* argformat, int* count)
@@ -65,41 +54,28 @@ static void ft_int_rightaligned(int arg, int dig, t_format* argformat, int* coun
             write(1, "-", 1);
             arg = -arg;
         } 
-        if (argformat->flags.zero)
-            writezeros(n);
-        else
-            writespaces(n);
+        increase_to_width(argformat, n, count);
         if (dig)
+		{
             ft_putnbr_fd(arg, 1);
-		(*count) += n + dig;
+			(*count) += dig;
+		}
 		return ;
 	}
 	//далее точность значение имеет
 	if (arg < 0)
 	{
-		n = argformat->width - argformat->precision - 1;
-		if (argformat->flags.zero)
-			writezeros(n);
-		else
-			writespaces(n);
-		(*count) += n;
+		increase_to_width(argformat, argformat->width - argformat->precision - 1, count);
 		write(1, "-", 1);
-		n = argformat->precision - dig + 1;
-		writezeros(n);
+		writezeros(argformat->precision - dig + 1, count);
 		ft_putnbr_fd(-arg, 1);
-		(*count) += n + dig;
+		(*count) += dig;
 		return ;
 	}
-	n = argformat->width - argformat->precision;
-	if (argformat->flags.zero)
-		writezeros(n);
-	else
-		writespaces(n);
-	(*count) += n;
-	n = argformat->precision - dig;
-	writezeros(n);
+	increase_to_width(argformat, argformat->width - argformat->precision, count);
+	writezeros(argformat->precision - dig, count);
 	ft_putnbr_fd(arg, 1);
-	(*count) += n + dig;
+	(*count) += dig;
 }
 
 t_ok		ft_int_type(va_list* argptr, t_format* argformat, int* count)
@@ -140,9 +116,9 @@ t_ok		ft_int_type(va_list* argptr, t_format* argformat, int* count)
 			arg = -arg;
 		}
 		n += argformat->precision - dig; //n - число нулей перед числом для соблюдения точности
-		writezeros(n);
+		writezeros(n, count);
 		ft_putnbr_fd(arg, 1);
-		(*count) += n + dig;
+		(*count) += dig;
 		return OK;
 	}
 	if (argformat->flags.minus)

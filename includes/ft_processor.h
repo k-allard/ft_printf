@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/16 21:37:19 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/17 17:14:35 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ t_ok		ft_string_type(va_list* argptr, t_format* argformat, int* count);
 t_ok		ft_un_int_type(va_list* argptr, t_format* argformat, int* count);
 t_ok		ft_un_o_type(va_list* argptr, t_format* argformat, int* count);
 t_ok		ft_un_xx_type(va_list* argptr, t_format* argformat, int* count);
-void        writespaces(int n);
-void        writezeros(int n);
+void        writespaces(int n, int* count);
+void        writezeros(int n, int* count);
+void		increase_to_width(t_format* argformat, int n, int* count);
+
 
 #endif

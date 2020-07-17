@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 16:37:03 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/17 19:02:05 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 static void ft_str_aligned(char *arg, int symb, t_format* argformat, int *count)
 {
-	int n;
-
-	n = argformat->width - symb;
 	if (argformat->flags.minus)
 	{
 		ft_putstr_fd(arg, 1);
-		writespaces(n);
+		writespaces(argformat->width - symb, count);
 	}
 	else
 	{
-		writespaces(n);
+		writespaces(argformat->width - symb, count);
 		ft_putstr_fd(arg, 1);
 	}
-	(*count) += symb + n;
+	(*count) += symb;
 }
 
 static t_ok ft_nullstring(t_format* argformat, int *count)
@@ -55,7 +52,6 @@ static t_ok ft_nullstring(t_format* argformat, int *count)
 t_ok		ft_string_type(va_list *argptr, t_format *argformat, int *count)
 {
 	char *arg;
-	// int n;
 	char *arg_new;
 	int symb;	//кол-во символов в строке
 		
