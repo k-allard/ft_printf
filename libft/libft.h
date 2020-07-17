@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/30 21:17:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 21:50:55 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 00:09:14 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int					ft_isprint(int ch);
 int					ft_atoi(char *str);
 char				*ft_itoa(int n);
 char				*ft_itoa_convert(unsigned long value, unsigned long base);
-
 
 char				*ft_strnew(size_t size);
 size_t				ft_strlen(const char *str);

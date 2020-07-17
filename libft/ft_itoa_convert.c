@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/13 00:36:26 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/13 00:39:39 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 00:10:05 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_itoa_convert(unsigned long value, unsigned long base)
 {
 	char				*s;
-	unsigned long 		n;
+	unsigned long		n;
 	int					len;
 
 	len = 1;
