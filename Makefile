@@ -6,7 +6,7 @@
 #    By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 22:32:54 by kallard           #+#    #+#              #
-#    Updated: 2020/07/17 22:20:31 by kallard          ###   ########.fr        #
+#    Updated: 2020/07/18 00:20:54 by kallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ TEST = main.o
 
 SRC = parser/ft_flags_parse.c \
 		parser/ft_width_parse.c \
-		parser/ft_precision_parse.c \
+		parser/ft_prec_parse.c \
 		parser/ft_length_parse.c \
 		parser/ft_parser.c \
 		processor/utils.c \

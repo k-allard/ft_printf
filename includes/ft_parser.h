@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/18 00:06:59 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 00:18:33 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void			ft_flags_parse(const char *format, int *i, t_format *argformat);
 void			ft_length_parse(const char *format, int *i, \
 				t_format *argformat);
 t_format		ft_parser(va_list *argptr, const char *format, int *i);
-void			ft_precision_parse(va_list *argptr, const char *format, \
+void			ft_prec_parse(va_list *argptr, const char *format, \
 				int *i, t_format *argformat);
 void			ft_width_parse(va_list *argptr, const char *format, int *i, \
 				t_format *argformat);
