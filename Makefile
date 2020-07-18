@@ -6,17 +6,17 @@
 #    By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 22:32:54 by kallard           #+#    #+#              #
-#    Updated: 2020/07/18 15:20:51 by kallard          ###   ########.fr        #
+#    Updated: 2020/07/18 18:58:53 by kallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+
 TEST = main.o
 
 SRC = parser/ft_flags_parse.c \
 		parser/ft_width_parse.c \
 		parser/ft_prec_parse.c \
-		parser/ft_length_parse.c \
 		parser/ft_parser.c \
 		processor/ft_utils.c \
 		processor/ft_int_type.c \
@@ -27,13 +27,13 @@ SRC = parser/ft_flags_parse.c \
 		processor/ft_un_int_type.c \
 		processor/ft_un_xx_type.c \
 		processor/ft_processor.c \
-       base/ft_printf.c
+		base/ft_printf.c
 
 OBJS = $(SRC:.c=.o)
 
-FLAGS = -g
+FLAGS = -Wall -Wextra -Werror
 
-CC = clang
+CC = gcc
 
 HEADER = includes/*.h
 
@@ -47,8 +47,6 @@ $(NAME): $(OBJS)
 test: $(TEST) $(NAME)
 	@$(CC) -g -o project $(TEST) $(NAME) 
 	@./project
-
-
 
 clean:
 	@rm -rf $(TEST)
@@ -67,7 +65,6 @@ re: fclean all
 pft: fclean
 	@make -C pft
 	@pft/test
-
 
 %.o: %.c
 	@$(CC) $(FLAGS) -c $< -o $@
