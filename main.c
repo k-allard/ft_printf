@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/12 19:06:38 by csnowbal          #+#    #+#             */
-/*   Updated: 2020/07/17 22:22:02 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 14:14:45 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,14 @@ int	main(void)
     // printf("___________________\n");
     // printf("Output: %d vs %d\n\n", std, my);
 
-    printf("[%8.5x]\n", 34);
+    // printf("[%8.5x]\n", 34);
     ft_printf("[%8.5x]\n\n", 34);
 
-    printf("[%7x]\n", 33);
+    // printf("[%7x]\n", 33);
     ft_printf("[%7x]\n\n", 33);
+
+    getc(stdin);
+    
+    return 0;
 
 }

@@ -6,7 +6,7 @@
 #    By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 22:32:54 by kallard           #+#    #+#              #
-#    Updated: 2020/07/18 00:20:54 by kallard          ###   ########.fr        #
+#    Updated: 2020/07/18 14:08:17 by kallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC = parser/ft_flags_parse.c \
 		parser/ft_prec_parse.c \
 		parser/ft_length_parse.c \
 		parser/ft_parser.c \
-		processor/utils.c \
+		processor/ft_utils.c \
 		processor/ft_int_type.c \
 		processor/ft_char_type.c \
 		processor/ft_e_type.c \
