@@ -6,7 +6,7 @@
 #    By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 22:32:54 by kallard           #+#    #+#              #
-#    Updated: 2020/07/18 14:08:17 by kallard          ###   ########.fr        #
+#    Updated: 2020/07/18 15:20:51 by kallard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,21 +21,17 @@ SRC = parser/ft_flags_parse.c \
 		processor/ft_utils.c \
 		processor/ft_int_type.c \
 		processor/ft_char_type.c \
-		processor/ft_e_type.c \
-		processor/ft_f_inf_nan.c \
-		processor/ft_n_type.c \
 		processor/ft_percent_type.c \
 		processor/ft_pointer_type.c \
 		processor/ft_string_type.c \
 		processor/ft_un_int_type.c \
-		processor/ft_un_o_type.c \
 		processor/ft_un_xx_type.c \
 		processor/ft_processor.c \
        base/ft_printf.c
 
 OBJS = $(SRC:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -g
 
 CC = clang
 

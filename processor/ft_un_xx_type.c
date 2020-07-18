@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/18 14:20:58 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 14:41:51 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ t_ok		ft_un_xx_type(va_list *argptr, t_format *argformat, int *count)
 	int				n;
 
 	arg = (unsigned int)va_arg(*argptr, unsigned int);
-	print = ft_itoa_convert(arg, 16);
+	if (!(print = ft_itoa_convert(arg, 16)))
+		return (ERROR);
 	dig = ft_strlen(print);
 	n = dig;
 	while (argformat->type == X && n--)

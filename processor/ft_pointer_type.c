@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/18 13:39:05 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 14:40:39 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ t_ok		ft_pointer_type(va_list *argptr, t_format *argformat, int *count)
 	int					dig;
 
 	arg = (unsigned long int)va_arg(*argptr, unsigned long int);
-	print = ft_itoa_convert(arg, 16);
+	if (!(print = ft_itoa_convert(arg, 16)))
+		return (ERROR);
 	dig = ft_strlen(print) + 2;
 	if (!arg && argformat->prec_is_present && argformat->prec > dig - 2)
 		nullptr_prec(print, dig, argformat, count);
@@ -75,5 +76,6 @@ t_ok		ft_pointer_type(va_list *argptr, t_format *argformat, int *count)
 	}
 	else
 		ft_ptr_aligned(print, dig, argformat, count);
+	free(print);
 	return (OK);
 }
