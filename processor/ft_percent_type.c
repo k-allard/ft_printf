@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 23:17:46 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 13:00:07 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ t_ok		ft_percent_type(t_format* argformat, int* count)
 	else if (argformat->flags.minus)
 	{
 		write(1, "%", 1);
-		increase_to_width(argformat, argformat->width - 1, count);
+		width_increase(argformat, argformat->width - 1, count);
 	}
 	else
 	{
-		increase_to_width(argformat, argformat->width - 1, count);
+		width_increase(argformat, argformat->width - 1, count);
 		write(1, "%", 1);
 	}
 	(*count)++;

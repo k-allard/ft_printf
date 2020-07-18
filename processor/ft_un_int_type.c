@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 21:36:52 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 13:00:07 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ static void ft_un_int_leftaligned(unsigned int arg, int dig, t_format* argformat
 			ft_putstr_fd(ft_itoa_convert(arg, 10), 1);
 			(*count) += dig;
 		}
-		increase_to_width(argformat, argformat->width - dig, count);
+		width_increase(argformat, argformat->width - dig, count);
 		return ;
 	}
 	writezeros(argformat->precision - dig, count);
 	ft_putstr_fd(ft_itoa_convert(arg, 10), 1);
 	(*count) += dig;
-	increase_to_width(argformat, argformat->width - argformat->precision, count);
+	width_increase(argformat, argformat->width - argformat->precision, count);
 }
 
 static void ft_un_int_rightaligned(unsigned int arg, int dig, t_format* argformat, int *count)
 {
 	if (dig >= argformat->precision) //если число >= точности, точность значения не имеет
 	{
-		increase_to_width(argformat, argformat->width - dig, count);
+		width_increase(argformat, argformat->width - dig, count);
 		if (dig)
 		{
 			ft_putstr_fd(ft_itoa_convert(arg, 10), 1);
@@ -42,7 +42,7 @@ static void ft_un_int_rightaligned(unsigned int arg, int dig, t_format* argforma
 		}
 		return ;
 	}
-	increase_to_width(argformat, argformat->width - argformat->precision, count);
+	width_increase(argformat, argformat->width - argformat->precision, count);
 	writezeros(argformat->precision - dig, count);
 	if (dig)
 	{

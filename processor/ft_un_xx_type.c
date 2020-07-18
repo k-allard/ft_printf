@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 22:55:54 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 13:00:07 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ static void ft_xx_leftaligned(char *arg, int symb, t_format* argformat, int *cou
 static void ft_xx_rightaligned(char *arg, int symb, t_format* argformat, int *count)
 {
 	if (!argformat->precision_is_present || argformat->precision <= symb) //точность не дополняет нулями число
-		increase_to_width(argformat, argformat->width - symb, count);
+		width_increase(argformat, argformat->width - symb, count);
 	else //точность дополняет нулями число
 	{
-		increase_to_width(argformat, argformat->width - argformat->precision, count);
+		width_increase(argformat, argformat->width - argformat->precision, count);
 		writezeros(argformat->precision - symb, count);
 	}
 	if (symb)

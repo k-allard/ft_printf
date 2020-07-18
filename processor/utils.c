@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/16 21:26:26 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 21:57:01 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 13:00:07 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	writezeros(int n, int* count)
 		write(1, "0", 1);
 }
 
-void increase_to_width(t_format* argformat, int n, int* count)
+void width_increase(t_format* argformat, int n, int* count)
 {
 	if (argformat->flags.zero)
 		writezeros(n, count);
