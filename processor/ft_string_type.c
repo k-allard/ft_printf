@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/17 19:02:05 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 13:34:47 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ static t_ok ft_nullstring(t_format* argformat, int *count)
 	int symb;
 
 	symb = 6;
-	if (argformat->precision_is_present && argformat->precision < symb) // то есть (null) обрежется
-		symb = argformat->precision;
+	if (argformat->prec_is_present && argformat->prec < symb) // то есть (null) обрежется
+		symb = argformat->prec;
 	if (!(arg = ft_strnew(symb)))
 		return ERROR;
 	ft_strlcpy(arg, "(null)", symb + 1);
@@ -62,12 +62,12 @@ t_ok		ft_string_type(va_list *argptr, t_format *argformat, int *count)
 		return OK;
 	}
 	symb = ft_strlen(arg);
-	if (argformat->precision_is_present && argformat->precision < symb) 	//точность имеет значение
+	if (argformat->prec_is_present && argformat->prec < symb) 	//точность имеет значение
 	{
-		if (!(arg_new = ft_strnew(argformat->precision)))
+		if (!(arg_new = ft_strnew(argformat->prec)))
 			return (ERROR);
-		ft_strlcpy(arg_new, arg, argformat->precision + 1);
-		symb = argformat->precision;
+		ft_strlcpy(arg_new, arg, argformat->prec + 1);
+		symb = argformat->prec;
 		if (argformat->width <= symb) 		//ширина и флаги не будут имеют значения
 		{
 			ft_putstr_fd(arg_new, 1);

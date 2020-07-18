@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/18 13:00:07 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 13:34:47 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void ft_xx_leftaligned(char *arg, int symb, t_format* argformat, int *count)
 {
-	if (!argformat->precision_is_present || argformat->precision <= symb) //точность не дополняет нулями число
+	if (!argformat->prec_is_present || argformat->prec <= symb) //точность не дополняет нулями число
 	{
 		if (symb)
 		{
@@ -24,20 +24,20 @@ static void ft_xx_leftaligned(char *arg, int symb, t_format* argformat, int *cou
 		writespaces(argformat->width - symb, count);
 		return ;
 	}
-	writezeros(argformat->precision - symb, count);
+	writezeros(argformat->prec - symb, count);
 	ft_putstr_fd(arg, 1);
 	(*count) += symb;
-	writespaces(argformat->width - argformat->precision, count);
+	writespaces(argformat->width - argformat->prec, count);
 }
 
 static void ft_xx_rightaligned(char *arg, int symb, t_format* argformat, int *count)
 {
-	if (!argformat->precision_is_present || argformat->precision <= symb) //точность не дополняет нулями число
+	if (!argformat->prec_is_present || argformat->prec <= symb) //точность не дополняет нулями число
 		width_increase(argformat, argformat->width - symb, count);
 	else //точность дополняет нулями число
 	{
-		width_increase(argformat, argformat->width - argformat->precision, count);
-		writezeros(argformat->precision - symb, count);
+		width_increase(argformat, argformat->width - argformat->prec, count);
+		writezeros(argformat->prec - symb, count);
 	}
 	if (symb)
 	{
@@ -48,13 +48,13 @@ static void ft_xx_rightaligned(char *arg, int symb, t_format* argformat, int *co
 
 static t_ok no_width(char *print, int dig, t_format* argformat, int *count)
 {
-	if (dig > argformat->precision)	//число < точности -> точность тоже не нужна
+	if (dig > argformat->prec)	//число < точности -> точность тоже не нужна
 	{
 		ft_putstr_fd(print, 1);
 		(*count) += dig;
 		return OK;
 	}
-	writezeros(argformat->precision - dig, count);
+	writezeros(argformat->prec - dig, count);
 	ft_putstr_fd(print, 1);
 	(*count) += dig;
 	return OK;
@@ -74,13 +74,13 @@ t_ok		ft_un_xx_type(va_list* argptr, t_format* argformat, int *count)
 	if (argformat->type == X)
 		while (n--)
 			print[n] = (char)ft_toupper((int)print[n]);
-	if (argformat->precision_is_present)
+	if (argformat->prec_is_present)
 	{
 		argformat->flags.zero = 0;
-		if (argformat->precision == 0 && arg == 0)
+		if (argformat->prec == 0 && arg == 0)
 			dig = 0;
 	}
-	if (argformat->width < argformat->precision || argformat->width < dig)
+	if (argformat->width < argformat->prec || argformat->width < dig)
 		return(no_width(print, dig, argformat,count));
 	argformat->flags.minus ? ft_xx_leftaligned(print, dig, argformat,count) : ft_xx_rightaligned(print, dig, argformat, count);	
 	return OK;
