@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/18 12:43:11 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 13:34:47 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static void	basic_prec_parse(const char *format, int *i, t_format *argformat)
 	while (format[*i] == '0')
 		(*i)++;
 	f = (char *)format;
-	argformat->precision = ft_atoi(&(f[*i]));
-	n = argformat->precision;
+	argformat->prec = ft_atoi(&(f[*i]));
+	n = argformat->prec;
 	while (n)
 	{
 		n /= 10;
@@ -32,21 +32,21 @@ static void	basic_prec_parse(const char *format, int *i, t_format *argformat)
 void		ft_prec_parse(va_list *argptr, const char *format, int *i, \
 			t_format *argformat)
 {
-	argformat->precision_is_present = 0;
-	argformat->precision = 0;
+	argformat->prec_is_present = 0;
+	argformat->prec = 0;
 	if (format[*i] == '.')
 	{
-		argformat->precision_is_present = 1;
+		argformat->prec_is_present = 1;
 		(*i)++;
 	}
 	else
 		return ;
 	if (format[*i] == '*')
 	{
-		argformat->precision = va_arg(*argptr, int);
+		argformat->prec = va_arg(*argptr, int);
 		(*i)++;
-		if (argformat->precision < 0)
-			argformat->precision_is_present = 0;
+		if (argformat->prec < 0)
+			argformat->prec_is_present = 0;
 	}
 	else if (ft_isdigit(format[*i]))
 		basic_prec_parse(format, i, argformat);

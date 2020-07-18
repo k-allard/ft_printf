@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/18 00:18:33 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/18 13:34:47 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ typedef	struct	s_format
 {
 	t_flags		flags;
 	int			width;
-	int			precision_is_present;
-	int			precision;
+	int			prec_is_present;
+	int			prec;
 	int			length;
 	t_type		type;
 	t_ok		ok;
