@@ -6,7 +6,7 @@
 /*   By: kallard <kallard@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/11 11:05:00 by kallard           #+#    #+#             */
-/*   Updated: 2020/07/18 13:34:47 by kallard          ###   ########.fr       */
+/*   Updated: 2020/07/20 09:07:58 by kallard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,18 @@ static void	int_right_prec(int arg, int dig, t_format *argformat, int *count)
 
 static void	int_rightaligned(int arg, int dig, t_format *argformat, int *count)
 {
-	if (!argformat->prec_is_present || dig >= argformat->prec)
-	{
-		if (arg < 0 && argformat->flags.zero)
+		if (!argformat->prec_is_present || (arg >= 0 && dig >= argformat->prec) || \
+			(arg < 0 && dig - 1 >= argformat->prec))
 		{
-			write(1, "-", 1);
-			arg = -arg;
+			if (arg < 0 && argformat->flags.zero)
+			{
+				write(1, "-", 1);
+				arg = -arg;
+			}
+			width_increase(argformat, argformat->width - dig, count);
+			if (dig)
+				putnbr_count(arg, dig, count);
 		}
-		width_increase(argformat, argformat->width - dig, count);
-		if (dig)
-			putnbr_count(arg, dig, count);
-	}
 	else
 		int_right_prec(arg, dig, argformat, count);
 }
